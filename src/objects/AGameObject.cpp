@@ -26,8 +26,10 @@ void AGameObject::displayText(std::string text, int size, sf::Color color, sf::V
     sf::Font font;
     sf::Text to_draw;
 
-    if (!font.loadFromFile("src/objects/Arial.ttf"))
+    if (!font.loadFromFile("src/objects/Arial.ttf")) {
+        std::cerr << "Fail to load font." << std::endl;
         return;
+    }
     to_draw.setFont(font);
     to_draw.setString(text);
     to_draw.setCharacterSize(size);
@@ -61,9 +63,16 @@ void AGameObject::displayCircle(int ray, sf::Color color, sf::Vector2f position)
     // TODO texture ???
 }
 
-void AGameObject::displaySprite()
+void AGameObject::displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
 {
+    sf::Sprite sprite;
+    sf::Texture texture;
 
+    texture.loadFromFile(sprite_image);
+    sprite.setTexture(texture);
+    sprite.setScale(size);
+    sprite.setPosition(pos.x, pos.y);
+    _window.draw(sprite);
 }
 
 void AGameObject::playMusic(std::string filename)

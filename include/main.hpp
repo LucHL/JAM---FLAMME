@@ -12,5 +12,6 @@
     #include <SFML/System.hpp>
     #include <SFML/Window.hpp>
     #include <iostream>
+    #include <unordered_map>
 
 #endif /* !MAIN_HPP_ */

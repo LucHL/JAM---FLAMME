@@ -23,14 +23,14 @@ class AGameObject : public IGameObject {
         void playMusic(std::string filename);
         void handleEvent();
 
-        void changeScenes();
-
         sf::RenderWindow &getWindow() { return _window; }
         sf::Event &getEvent() { return _event; }
 
     private:
         sf::RenderWindow &_window;
         sf::Event &_event;
+        // std::unordered_map<int, Scnene> _scenes;
+        // int _currentScene;
 };
 
 #endif /* !AGAMEOBJECT_HPP_ */

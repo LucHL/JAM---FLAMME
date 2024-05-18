@@ -14,7 +14,7 @@ class AScene : public IScene {
         ~AScene();
 
         void update(sf::Event &e);
-        void draw(sf::RenderWindow &w);
+        void draw();
         void initialize();
         sceneType &getType();
 

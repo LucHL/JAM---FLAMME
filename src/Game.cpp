@@ -20,6 +20,7 @@ void Game::createWindow()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
+    _s = std::make_shared<AScene>(AScene("assets/startmenu.png", _window, sceneType::MAINMENU));
 }
 
 void Game::playMusic(std::string filename)
@@ -39,8 +40,6 @@ void Game::gameLoop() {
 
         handleEvent();
 
-        _s->update(_event);
-        _s->draw(_window);
         _window.display();
     }
 }
@@ -52,4 +51,6 @@ void Game::handleEvent()
             _window.close();
         }
     }
+    _s->update(_event);
+    _s->draw();
 }

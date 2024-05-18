@@ -7,7 +7,8 @@
 
 #include "AScene.hpp"
 
-AScene::AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t) : _window(win), _t(t) {
+AScene::AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t) : _window(win), _t(t)
+{
     _backgroundText.loadFromFile(backgroundPath);
     _backgroundSprite.setTexture(_backgroundText);
 }
@@ -18,8 +19,11 @@ void AScene::update(sf::Event &e) {
     return;
 }
 
-void AScene::draw(sf::RenderWindow &w) {
-    w.draw(_backgroundSprite);
+void AScene::draw()
+{
+    displaySprite(sf::Vector2f(0,0), "assets/startmenu.png", sf::Vector2f(20,20));
+    displayCircle(50, sf::Color::Green, sf::Vector2f(10,10));
+    displayText("ceci est un text (c fo)", 100, sf::Color::Blue, sf::Vector2f(100,100));
 }
 
 void AScene::initialize() {
@@ -69,7 +73,6 @@ void AScene::displayCircle(int ray, sf::Color color, sf::Vector2f position)
     circle.setFillColor(color);
     circle.setPosition(position);
     _window.draw(circle);
-    // TODO texture ???
 }
 
 void AScene::displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)

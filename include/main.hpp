@@ -11,6 +11,6 @@
     #include <SFML/Audio.hpp>
     #include <SFML/System.hpp>
     #include <SFML/Window.hpp>
-
+    #include <iostream>
 
 #endif /* !MAIN_HPP_ */

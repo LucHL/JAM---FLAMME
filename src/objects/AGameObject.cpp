@@ -16,7 +16,9 @@ AGameObject::~AGameObject() {}
 
 void AGameObject::createWindow()
 {
-    _window.create(sf::VideoMode(1920, 1080), "FLAMME");
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
 }
 
 void AGameObject::displayText(std::string text, int size, sf::Color color, sf::Vector2f pos)
@@ -49,9 +51,14 @@ void AGameObject::displayRect(sf::Color color, sf::Color border_color, float bor
     _window.draw(rect);
 }
 
-void AGameObject::displayCircle()
+void AGameObject::displayCircle(int ray, sf::Color color, sf::Vector2f position)
 {
+    sf::CircleShape circle(ray);
 
+    circle.setFillColor(color);
+    circle.setPosition(position);
+    _window.draw(circle);
+    // TODO texture ???
 }
 
 void AGameObject::displaySprite()
@@ -59,12 +66,22 @@ void AGameObject::displaySprite()
 
 }
 
-void AGameObject::playMusic()
+void AGameObject::playMusic(std::string filename)
 {
+    sf::Music music;
 
+    if (!music.openFromFile(filename)) {
+        std::cerr << "Fail to load music." << std::endl;
+        return;
+    }
+    music.play();
 }
 
 void AGameObject::handleEvent()
 {
-
+    if (_window.pollEvent(_event)) {
+        if (_event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+            _window.close();
+        }
+    }
 }

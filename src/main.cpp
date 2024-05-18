@@ -14,11 +14,11 @@ int main() {
 
     while (game.getWindow().isOpen()) {
         game.getWindow().clear();
-        if (game.getWindow().pollEvent(game.getEvent())) {
-            if (game.getEvent().type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-                game.getWindow().close();
-            }
-        }
+
+        game.displayCircle(50, sf::Color::Red, sf::Vector2f(150, 5));
+        game.displayCircle(50, sf::Color::Green, sf::Vector2f(10, 100));
+
+        game.handleEvent();
         game.getWindow().display();
     }
 }

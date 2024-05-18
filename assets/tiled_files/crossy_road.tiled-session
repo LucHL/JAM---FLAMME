@@ -1,0 +1,30 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "map.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 326,
+                "y": 81
+            }
+        }
+    },
+    "last.imagePath": "/home/ncarabin/Downloads",
+    "map.fixedSize": true,
+    "map.height": 84,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 66,
+    "openFiles": [
+    ],
+    "project": "crossy_road.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

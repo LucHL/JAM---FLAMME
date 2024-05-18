@@ -14,7 +14,7 @@ class IGameObject {
         virtual ~IGameObject() = default;
 
         virtual void createWindow() = 0;
-        virtual void displayText() = 0;
+        virtual void displayText(std::string text, int size, sf::Color color, sf::Vector2f pos) = 0;
         virtual void displayRect() = 0;
         virtual void displayCircle() = 0;
         virtual void displaySprite() = 0;

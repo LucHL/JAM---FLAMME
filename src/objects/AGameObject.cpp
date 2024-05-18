@@ -19,9 +19,19 @@ void AGameObject::createWindow()
     _window.create(sf::VideoMode(1920, 1080), "FLAMME");
 }
 
-void AGameObject::displayText()
+void AGameObject::displayText(std::string text, int size, sf::Color color, sf::Vector2f pos)
 {
+    sf::Font font;
+    sf::Text to_draw;
 
+    if (!font.loadFromFile("src/objects/Arial.ttf"))
+        return;
+    to_draw.setFont(font);
+    to_draw.setString(text);
+    to_draw.setCharacterSize(size);
+    to_draw.setFillColor(color);
+    to_draw.setPosition(pos.x, pos.y);
+    _window.draw(to_draw);
 }
 
 void AGameObject::displayRect()

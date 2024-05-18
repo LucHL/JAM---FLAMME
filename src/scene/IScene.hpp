@@ -16,9 +16,8 @@ class IScene {
     public:
         virtual ~IScene() = default;
 
-        virtual void event() = 0;
-        virtual void update() = 0;
-        virtual void draw() = 0;
+        virtual void update(sf::Event &e) = 0;
+        virtual void draw(sf::RenderWindow &w) = 0;
         virtual void initialize() = 0;
         virtual sceneType &getType() = 0;
 };

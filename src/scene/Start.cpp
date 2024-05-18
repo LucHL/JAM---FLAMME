@@ -7,7 +7,7 @@
 
 #include "Start.hpp"
 
-Start::Start(std::string backgroundPath, std::string musicPath) {
+Start::Start(std::string backgroundPath) {
     _backgroundText.loadFromFile(backgroundPath);
     _backgroundSprite.setTexture(_backgroundText);
     _t = sceneType::MAINMENU;
@@ -15,16 +15,12 @@ Start::Start(std::string backgroundPath, std::string musicPath) {
 
 Start::~Start() {}
 
-void Start::event() {
+void Start::update(sf::Event &e) {
     return;
 }
 
-void Start::update() {
-    return;
-}
-
-void Start::draw() {
-    return;
+void Start::draw(sf::RenderWindow &w) {
+    w.draw(_backgroundSprite);
 }
 
 void Start::initialize() {

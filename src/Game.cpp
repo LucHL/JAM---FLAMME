@@ -10,9 +10,8 @@
 
 Game::Game(sf::RenderWindow &win, sf::Event &event) : _window(win), _event(event)
 {
+    _s = std::make_shared<Start>(Start("assets/startmenu.png"));
     createWindow();
-    Start s("../assets/img.png", "../assets/music/test.ogg");
-    _scenes[s.getType()] = std::make_shared<Start>(s);
 }
 
 Game::~Game() {}
@@ -93,10 +92,10 @@ void Game::gameLoop() {
     while (_window.isOpen()) {
         _window.clear(sf::Color::Black);
 
-        displayText("ceci est du text", 50, sf::Color::Blue, sf::Vector2f(100, 200));
-
         handleEvent();
-        _window.display();
+
+        _s->update(_event);
+        _s->draw(_window);
     }
 }
 

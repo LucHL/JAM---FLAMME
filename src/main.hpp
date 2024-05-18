@@ -13,5 +13,6 @@
     #include <SFML/Window.hpp>
     #include <iostream>
     #include <unordered_map>
+    #include <memory>
 
 #endif /* !MAIN_HPP_ */

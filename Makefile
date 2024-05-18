@@ -6,7 +6,8 @@
 ##
 
 SRC	=	src/main.cpp \
-		src/objects/AGameObject.cpp
+		src/Game.cpp \
+		src/scene/Start.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

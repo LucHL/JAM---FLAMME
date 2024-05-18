@@ -2,17 +2,18 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** AGameObject
+** Game
 */
 
-#ifndef AGAMEOBJECT_HPP_
-    #define AGAMEOBJECT_HPP_
-    #include "IGameObject.hpp"
+#ifndef GAME_HPP_
+    #define GAME_HPP_
+    #include "main.hpp"
+    #include "scene/IScene.hpp"
 
-class AGameObject : public IGameObject {
+class Game {
     public:
-        AGameObject(sf::RenderWindow &win, sf::Event &event);
-        ~AGameObject();
+        Game(sf::RenderWindow &win, sf::Event &event);
+        ~Game();
 
         void createWindow();
         void displayText(std::string text, int size, sf::Color color, sf::Vector2f pos);
@@ -23,14 +24,16 @@ class AGameObject : public IGameObject {
         void playMusic(std::string filename);
         void handleEvent();
 
+        void changeScenes();
+
+        void gameLoop();
         sf::RenderWindow &getWindow() { return _window; }
         sf::Event &getEvent() { return _event; }
 
     private:
         sf::RenderWindow &_window;
         sf::Event &_event;
-        // std::unordered_map<int, Scnene> _scenes;
-        // int _currentScene;
+        std::unordered_map<std::size_t, std::unique_ptr<IScene>> _scenes;
 };
 
-#endif /* !AGAMEOBJECT_HPP_ */
+#endif /* !GAME_HPP_ */

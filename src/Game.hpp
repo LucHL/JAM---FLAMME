@@ -16,19 +16,9 @@ class Game {
         ~Game();
 
         void createWindow();
-        void displayText(std::string text, int size, sf::Color color, sf::Vector2f pos);
-        void displayRect(sf::Color color, sf::Color border_color, float border_size,
-            sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size);
-        void displayCircle(int ray, sf::Color color, sf::Vector2f position);
-        void displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size);
-        void playMusic(std::string filename);
         void handleEvent();
-
-        void changeScenes();
-
         void gameLoop();
-        sf::RenderWindow &getWindow() { return _window; }
-        sf::Event &getEvent() { return _event; }
+        void playMusic(std::string filename);
 
     private:
         sf::RenderWindow &_window;

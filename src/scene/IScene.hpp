@@ -20,4 +20,11 @@ class IScene {
         virtual void draw(sf::RenderWindow &w) = 0;
         virtual void initialize() = 0;
         virtual sceneType &getType() = 0;
+
+    protected:
+        virtual void displayText(std::string text, int size, sf::Color color, sf::Vector2f pos) = 0;
+        virtual void displayRect(sf::Color color, sf::Color border_color, float border_size,
+            sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size) = 0;
+        virtual void displayCircle(int ray, sf::Color color, sf::Vector2f position) = 0;
+        virtual void displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size) = 0;
 };

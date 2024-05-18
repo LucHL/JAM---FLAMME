@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** Start
+** AScene
 */
 
 #pragma once
 #include "IScene.hpp"
 
-class Start : public IScene {
+class AScene : public IScene {
     public:
-        Start(std::string backgroundPath, sf::RenderWindow &win);
-        ~Start();
+        AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t);
+        ~AScene();
 
         void update(sf::Event &e);
         void draw(sf::RenderWindow &w);

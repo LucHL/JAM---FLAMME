@@ -2,37 +2,35 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** Start
+** AScene
 */
 
-#include "Start.hpp"
+#include "AScene.hpp"
 
-Start::Start(std::string backgroundPath, sf::RenderWindow &win) : _window(win)
-{
+AScene::AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t) : _window(win), _t(t) {
     _backgroundText.loadFromFile(backgroundPath);
     _backgroundSprite.setTexture(_backgroundText);
-    _t = sceneType::MAINMENU;
 }
 
-Start::~Start() {}
+AScene::~AScene() {}
 
-void Start::update(sf::Event &e) {
+void AScene::update(sf::Event &e) {
     return;
 }
 
-void Start::draw(sf::RenderWindow &w) {
+void AScene::draw(sf::RenderWindow &w) {
     w.draw(_backgroundSprite);
 }
 
-void Start::initialize() {
+void AScene::initialize() {
     return;
 }
 
-sceneType &Start::getType() {
+sceneType &AScene::getType() {
     return _t;
 }
 
-void Start::displayText(std::string text, int size, sf::Color color, sf::Vector2f pos)
+void AScene::displayText(std::string text, int size, sf::Color color, sf::Vector2f pos)
 {
     sf::Font font;
     sf::Text to_draw;
@@ -49,7 +47,7 @@ void Start::displayText(std::string text, int size, sf::Color color, sf::Vector2
     _window.draw(to_draw);
 }
 
-void Start::displayRect(sf::Color color, sf::Color border_color, float border_size,
+void AScene::displayRect(sf::Color color, sf::Color border_color, float border_size,
     sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size)
 {
     sf::RectangleShape rect;
@@ -64,7 +62,7 @@ void Start::displayRect(sf::Color color, sf::Color border_color, float border_si
     _window.draw(rect);
 }
 
-void Start::displayCircle(int ray, sf::Color color, sf::Vector2f position)
+void AScene::displayCircle(int ray, sf::Color color, sf::Vector2f position)
 {
     sf::CircleShape circle(ray);
 
@@ -74,7 +72,7 @@ void Start::displayCircle(int ray, sf::Color color, sf::Vector2f position)
     // TODO texture ???
 }
 
-void Start::displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
+void AScene::displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
 {
     sf::Sprite sprite;
     sf::Texture texture;

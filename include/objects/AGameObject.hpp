@@ -16,7 +16,8 @@ class AGameObject : public IGameObject {
 
         void createWindow();
         void displayText(std::string text, int size, sf::Color color, sf::Vector2f pos);
-        void displayRect();
+        void displayRect(sf::Color color, sf::Color border_color, float border_size,
+        sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size);
         void displayCircle();
         void displaySprite();
         void playMusic();

@@ -34,9 +34,19 @@ void AGameObject::displayText(std::string text, int size, sf::Color color, sf::V
     _window.draw(to_draw);
 }
 
-void AGameObject::displayRect()
+void AGameObject::displayRect(sf::Color color, sf::Color border_color, float border_size,
+    sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size)
 {
+    sf::RectangleShape rect;
 
+    rect.setFillColor(color);
+    rect.setOutlineColor(border_color);
+    rect.setOutlineThickness(border_size);
+    rect.setOrigin(origin_pos.x, origin_pos.y);
+    rect.setPosition(pos.x, pos.y);
+    rect.setRotation(rotation_angle);
+    rect.setSize(size);
+    _window.draw(rect);
 }
 
 void AGameObject::displayCircle()

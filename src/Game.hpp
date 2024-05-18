@@ -33,7 +33,7 @@ class Game {
     private:
         sf::RenderWindow &_window;
         sf::Event &_event;
-        std::unordered_map<std::size_t, std::unique_ptr<IScene>> _scenes;
+        std::unordered_map<std::size_t, std::shared_ptr<IScene>> _scenes;
 };
 
 #endif /* !GAME_HPP_ */

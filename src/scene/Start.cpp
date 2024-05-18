@@ -10,7 +10,7 @@
 Start::Start(std::string backgroundPath, std::string musicPath) {
     _backgroundText.loadFromFile(backgroundPath);
     _backgroundSprite.setTexture(_backgroundText);
-    std::cerr << "heeeeyyyyy" << std::endl;
+    _t = sceneType::MAINMENU;
 }
 
 Start::~Start() {}
@@ -25,4 +25,12 @@ void Start::update() {
 
 void Start::draw() {
     return;
+}
+
+void Start::initialize() {
+    return;
+}
+
+sceneType &Start::getType() {
+    return _t;
 }

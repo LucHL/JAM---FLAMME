@@ -19,4 +19,6 @@ class IScene {
         virtual void event() = 0;
         virtual void update() = 0;
         virtual void draw() = 0;
+        virtual void initialize() = 0;
+        virtual sceneType &getType() = 0;
 };

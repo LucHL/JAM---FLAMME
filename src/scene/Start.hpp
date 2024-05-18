@@ -16,9 +16,12 @@ class Start : public IScene {
         void event();
         void update();
         void draw();
+        void initialize();
+        sceneType &getType();
 
     private:
         sf::Texture _backgroundText;
         sf::Sprite _backgroundSprite;
         sf::Music _m;
+        sceneType _t;
 };

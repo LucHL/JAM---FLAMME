@@ -12,6 +12,7 @@ Game::Game(sf::RenderWindow &win, sf::Event &event) : _window(win), _event(event
 {
     createWindow();
     Start s("../assets/img.png", "../assets/music/test.ogg");
+    _scenes[s.getType()] = std::make_shared<Start>(s);
 }
 
 Game::~Game() {}

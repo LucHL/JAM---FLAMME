@@ -24,5 +24,5 @@ class AScene : public IScene {
 
         sf::Texture _texture;
         sf::Sprite _sprite;
-        std::vector<std::shared_ptr<Btn>> _button;
+        std::vector<std::shared_ptr<IBtn>> _button;
 };

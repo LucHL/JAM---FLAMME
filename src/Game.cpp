@@ -24,7 +24,7 @@ void Game::createWindow()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
-    _s = std::make_shared<GameScene>(GameScene("assets/map.png", _window, sceneType::MAINMENU));
+    _s = std::make_shared<MainMenu>(MainMenu("assets/startmenu.png", _window, sceneType::MAINMENU));
     // _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
@@ -47,8 +47,6 @@ void Game::handleEvent()
             _window.close();
         }
         _s->update(_event);
-        _player.update(_event);
     }
     _s->draw();
-    _player.draw(_window);
 }

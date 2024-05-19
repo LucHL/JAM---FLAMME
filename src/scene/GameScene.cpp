@@ -18,17 +18,12 @@ GameScene::~GameScene()
 
 void GameScene::draw()
 {
-    //for (auto &i : _sprite)
-      //  _window.draw(i);
-    // for (auto &i : _text)
-    //     _window.draw(i);
-    // for (auto &i : _rect)
-    //     _window.draw(i);
+    _player.draw(_window);
 }
 
 void GameScene::update(sf::Event &e)
 {
-    // for (auto i : _rect)
+    _player.update(e);
 }
 
 void GameScene::initialize()

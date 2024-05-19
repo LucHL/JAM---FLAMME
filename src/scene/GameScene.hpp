@@ -7,6 +7,7 @@
 
 #pragma once
 #include "AScene.hpp"
+#include "../objects/Player.hpp"
 
 class GameScene : public AScene {
     public:
@@ -18,4 +19,7 @@ class GameScene : public AScene {
         void initialize() override;
 
     private:
+        Player _player;
+        sf::Clock _clock;
+
 };

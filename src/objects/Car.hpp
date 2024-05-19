@@ -23,7 +23,7 @@ private:
     int _speed;
     int _type;
     int _color;
-    sf::Vector2i _pos;
+    sf::Vector2f _pos;
     sf::Sprite _sprite;
     sf::Texture _texture;
 };

@@ -23,7 +23,7 @@ private:
     sf::Texture _textureCollision;
     sf::Sprite _spriteRoad;
     sf::Sprite _spriteCollision;
-    sf::Vector2i _pos;
+    sf::Vector2f _pos;
     std::vector<Car> _list;
     bool _isHighway;
     int _type;

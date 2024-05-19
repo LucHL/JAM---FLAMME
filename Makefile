@@ -12,6 +12,9 @@ SRC	=	src/main.cpp \
 		src/objects/Road.cpp \
 		src/objects/buttons/ABtn.cpp \
 		src/objects/buttons/ExitBtn.cpp \
+		src/objects/buttons/MainMenuBtn.cpp \
+		src/objects/buttons/MoreVolume.cpp \
+		src/objects/buttons/LessVolume.cpp \
 		src/objects/buttons/SettingsBtn.cpp \
 		src/objects/buttons/StartBtn.cpp \
 		src/objects/Pixel.cpp \

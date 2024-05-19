@@ -29,7 +29,7 @@ void Game::createWindow() {
 void Game::gameLoop()
 {
     while (_window.isOpen()) {
-        _window.clear(sf::Color::Black);
+        _window.clear(sf::Color::White);
 
         handleEvent();
         _window.display();

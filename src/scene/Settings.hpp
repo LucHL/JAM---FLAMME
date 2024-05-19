@@ -16,6 +16,14 @@ class Settings : public AScene {
 
         void update(sf::Event &e) override;
         void draw();
+    private:
+        sf::Texture _settings;
+        sf::Sprite _settings_s;
+        sf::FloatRect _settingsHitBox;
+    //Volume sprite
+        sf::Texture _volume;
+        sf::Sprite _volume_s;
+        sf::FloatRect _volumeHitBox;
 };
 
 #endif /* !SETTINGS_HPP_ */

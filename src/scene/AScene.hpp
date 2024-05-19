@@ -9,6 +9,9 @@
 #include "../objects/buttons/StartBtn.hpp"
 #include "../objects/buttons/SettingsBtn.hpp"
 #include "../objects/buttons/ExitBtn.hpp"
+#include "../objects/buttons/MainMenuBtn.hpp"
+#include "../objects/buttons/MoreVolume.hpp"
+#include "../objects/buttons/LessVolume.hpp"
 
 class AScene : public IScene {
     public:

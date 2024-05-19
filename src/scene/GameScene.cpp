@@ -20,9 +20,9 @@ GameScene::~GameScene()
 
 void GameScene::draw()
 {
-    _player.draw(_window);
     for (auto &road : _list)
         road->draw(_window);
+    _player.draw(_window);
 }
 
 void GameScene::update(sf::Event &e)

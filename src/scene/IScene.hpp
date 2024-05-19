@@ -11,8 +11,11 @@
 enum sceneType {
     MAINMENU,
     SETTINGS,
-    GAMESCENE
+    GAMESCENE,
+    LevelSelection
 };
+
+sceneType currentScene = MAINMENU;
 
 class IScene {
     public:

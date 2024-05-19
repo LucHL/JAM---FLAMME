@@ -7,10 +7,11 @@
 
 #pragma once
 #include "../main.hpp"
+#include "../scene/IScene.hpp"
 
-class IObjects {
+class IBtn {
     public:
-        virtual ~IObjects() = default;
+        virtual ~IBtn() = default;
         virtual void draw(sf::RenderWindow &w) = 0;
-        virtual bool isHittable() = 0;
+        virtual void update(sf::Event &e) = 0;
 };

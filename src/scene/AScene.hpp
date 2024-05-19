@@ -16,7 +16,6 @@ class AScene : public IScene {
         ~AScene();
 
         virtual void draw() = 0;
-        virtual void initialize() = 0;
         void update(sf::Event &e);
 
     protected:

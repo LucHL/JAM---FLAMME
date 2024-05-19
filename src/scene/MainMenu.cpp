@@ -30,7 +30,3 @@ void MainMenu::update(sf::Event &e)
     for (auto &i : _button)
         i->update(e, _window);
 }
-
-void MainMenu::initialize()
-{
-}

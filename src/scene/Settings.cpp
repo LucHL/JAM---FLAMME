@@ -21,8 +21,3 @@ void Settings::update(sf::Event &e)
 {
 
 }
-
-void Settings::initialize()
-{
-
-}

@@ -15,7 +15,6 @@ class Settings : public AScene {
         ~Settings();
 
         void update(sf::Event &e) override;
-        void initialize();
         void draw();
 };
 

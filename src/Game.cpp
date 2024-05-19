@@ -10,6 +10,7 @@
 #include "scene/Settings.hpp"
 #include "scene/MainMenu.hpp"
 #include "scene/GameScene.hpp"
+#include "objects/Pixel.hpp"
 
 Game::Game(sf::RenderWindow &win, sf::Event &event) : _window(win), _event(event)
 {
@@ -23,7 +24,7 @@ void Game::createWindow()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
-    _s = std::make_shared<MainMenu>(MainMenu("assets/startmenu.png", _window, sceneType::MAINMENU));
+    _s = std::make_shared<GameScene>(GameScene("assets/map.png", _window, sceneType::MAINMENU));
     // _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
@@ -40,13 +41,16 @@ void Game::playMusic(std::string filename)
 
 void Game::gameLoop()
 {
-
+    Pixel p;
+    std::vector<Pixel> pixels(500);
+    p.initializePixels(pixels);
     _s->initialize();
 
     while (_window.isOpen()) {
         _window.clear(sf::Color::Black);
 
         handleEvent();
+        p.simulateFlame(pixels, sf::Vector2f(10,10));
         _window.display();
     }
 }

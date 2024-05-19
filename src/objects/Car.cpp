@@ -10,8 +10,7 @@
 Car::Car() {
     std::srand(std::time(nullptr));
     _color = std::rand() % 4;
-    //_type = std::rand() % 2;
-    _type = 1;
+    _type = std::rand() % 2;
     _dir = std::rand() % 2;
     _speed = 1;
     _pos.x = 0;
@@ -28,12 +27,25 @@ bool Car::isPlayerCollision() {
     return false;
 }
 
-void Car::buildClassic() {
-    return;
-}
-
 void Car::draw(sf::RenderWindow &w) {
     w.draw(_sprite);
+}
+
+void Car::buildClassic() {
+    sf::Vector2i pos = {192, 0};
+    sf::IntRect rect;
+
+    pos.y += 144 * _color;
+    if (_dir == 0){
+        pos.x += 384;
+        pos.y += 96;
+    }
+    rect.top = pos.y;
+    rect.left = pos.x;
+    rect.height = 144;
+    rect.width = 192;
+    _texture.loadFromFile("assets/characters/car.png", rect);
+    _sprite.setTexture(_texture, true);
 }
 
 void Car::buildBus() {

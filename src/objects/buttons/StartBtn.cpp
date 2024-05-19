@@ -17,9 +17,12 @@ void StartBtn::update(sf::Event &e, sf::RenderWindow &w) {
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);
     if (isMouseOver(w)) {
         _sprite.setColor(over);
-        if (e.type == sf::Event::MouseButtonPressed);
+        if (e.type == sf::Event::MouseButtonPressed) {
+            SceneManager &inst = SceneManager::getInstance();
+            inst.setChange(true);
+            inst.changeScene(sceneType::GAMESCENE);
+        }
 
-            // currentScene = t;
     } else
         _sprite.setColor(base);
 }

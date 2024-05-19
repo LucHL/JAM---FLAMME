@@ -8,16 +8,13 @@
 #include "Settings.hpp"
 
 Settings::Settings(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
-    : AScene(backgroundPath, win, t)
-{
-}
+    : AScene(backgroundPath, win, t) {}
 
-Settings::~Settings()
-{
-}
+Settings::~Settings() {}
 
-void Settings::scene()
-{
+void Settings::draw() {
+    _bgSprite.setTexture(_bgTexture);
+    _window.draw(_bgSprite);
 }
 
 void Settings::update(sf::Event &e)

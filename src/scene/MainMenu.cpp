@@ -10,14 +10,17 @@
 MainMenu::MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
+    _button.push_back(std::make_unique<StartBtn>(sf::Vector2f(800,300)));
+    _button.push_back(std::make_unique<SettingsBtn>(sf::Vector2f(600,500)));
+    _button.push_back(std::make_unique<ExitBtn>(sf::Vector2f(1000, 500)));
 }
 
 MainMenu::~MainMenu() {}
 
 void MainMenu::draw()
 {
-    _sprite.setTexture(_texture);
-    _window.draw(_sprite);
+    _bgSprite.setTexture(_bgTexture);
+    _window.draw(_bgSprite);
     for (auto &i : _button)
         i->draw(_window);
 }
@@ -30,7 +33,4 @@ void MainMenu::update(sf::Event &e)
 
 void MainMenu::initialize()
 {
-    _button.push_back(std::make_shared<StartBtn>(StartBtn(sf::Vector2f(800,300))));
-    _button.push_back(std::make_shared<SettingsBtn>(SettingsBtn(sf::Vector2f(600,500))));
-    _button.push_back(std::make_shared<ExitBtn>(ExitBtn(sf::Vector2f(1000, 500))));
 }

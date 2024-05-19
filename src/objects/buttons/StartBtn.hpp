@@ -7,6 +7,7 @@
 
 #pragma once
 #include "ABtn.hpp"
+#include "../../scene/SceneManager.hpp"
 
 class StartBtn : public ABtn {
     public:

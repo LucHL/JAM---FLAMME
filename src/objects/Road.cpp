@@ -15,6 +15,7 @@ Road::Road(bool isHighway, int maxCarCount) {
     _pos.x = 0;
     _pos.y = 0;
     // remplir de voitures jusqu'à lim voie + luck
+    createCar(std::make_shared<Car>());
     if (_isHighway)
         buildHighway();
     else
@@ -26,6 +27,12 @@ Road::~Road() {}
 void Road::draw(sf::RenderWindow &w) {
     w.draw(_spriteRoad);
     w.draw(_spriteCollision);
+    for (auto &car : _list)
+        (*car).draw(w);
+}
+
+void Road::createCar(std::shared_ptr<Car> car) {
+    _list.push_back(car);
 }
 
 void Road::buildHighway() {

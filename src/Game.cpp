@@ -60,7 +60,7 @@ void Game::handleEvent()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
             _player.setPosition((sf::Vector2f){20, 0});
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            _player.setPosition((sf::Vector2f){0, -20});
+            std::cout << "Flèche de haut" << std::endl;
     }
     _s->update(_event);
     _s->draw();

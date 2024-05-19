@@ -30,7 +30,6 @@ void MainMenu::draw()
 
 void MainMenu::update(sf::Event &e)
 {
-    
     // for (auto i : _rect)
 }
 

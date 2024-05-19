@@ -12,7 +12,8 @@ SRC	=	src/main.cpp \
 		src/objects/Car.cpp \
 		src/objects/Road.cpp \
 		src/objects/Player.cpp	\
-		src/scene/MainMenu.cpp
+		src/scene/MainMenu.cpp	\
+		src/scene/GameScene.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

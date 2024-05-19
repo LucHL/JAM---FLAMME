@@ -10,7 +10,8 @@
 
 enum sceneType {
     MAINMENU,
-    SETTINGS
+    SETTINGS,
+    GAMESCENE
 };
 
 class IScene {

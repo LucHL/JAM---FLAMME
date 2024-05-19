@@ -31,11 +31,17 @@ void Road::draw(sf::RenderWindow &w) {
     w.draw(_spriteRoad);
     w.draw(_spriteCollision);
     for (auto &car : _list)
-        (*car).draw(w);
+        car->draw(w);
 }
 
 void Road::createCar(std::shared_ptr<Car> car) {
     _list.push_back(car);
+}
+
+int Road::getRoadSize(void) {
+    if (!_isHighway)
+        return 96;
+    return (_type + 1) * 96;
 }
 
 void Road::update() {

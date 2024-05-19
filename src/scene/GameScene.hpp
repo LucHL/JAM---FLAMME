@@ -8,6 +8,7 @@
 #pragma once
 #include "AScene.hpp"
 #include "../objects/Player.hpp"
+#include "../objects/Road.hpp"
 
 class GameScene : public AScene {
     public:
@@ -16,8 +17,12 @@ class GameScene : public AScene {
 
         void draw() override;
         void update(sf::Event &e) override;
+        int createRoad(std::shared_ptr<Road> road);
 
     private:
+        bool _isHighway;
+        int _pos_y;
         Player _player;
         sf::Clock _clock;
+        std::vector<std::shared_ptr<Road>> _list;
 };

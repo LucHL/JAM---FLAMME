@@ -15,8 +15,8 @@ Player::Player()
     _rect.height = 64;
     _texture.loadFromFile("assets/characters/char_chef.png", _rect);
     _sprite.setTexture(_texture, true);
-    _pos.x = 0;
-    _pos.y = 0;
+    _pos.x = 944;
+    _pos.y = 920;
     _state = 0;
 }
 

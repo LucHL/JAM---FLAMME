@@ -17,6 +17,7 @@ public:
     void buildHighway();
     void buildGrass();
     void createCar(std::shared_ptr<Car> car);
+    int getRoadSize(void);
     void update();
     void draw(sf::RenderWindow &w);
 

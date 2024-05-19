@@ -7,6 +7,7 @@
 
 SRC	=	src/main.cpp \
 		src/Game.cpp \
+		src/scene/GameScene.cpp \
 		src/scene/AScene.cpp \
 		src/objects/Car.cpp \
 		src/objects/Road.cpp \
@@ -21,7 +22,7 @@ CPPFLAG	=	-std=c++20 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 all:	$(NAME)
 $(NAME): $(OBJ)
-	g++ -o $(NAME) $(SRC) $(CPPFLAG)
+	g++ -o $(NAME) $(OBJ) $(CPPFLAG)
 
 clean:
 	rm -f $(OBJ)

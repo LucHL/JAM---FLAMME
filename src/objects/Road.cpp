@@ -9,11 +9,7 @@
 
 Road::Road(bool is_highway) {
     std::srand(std::time(nullptr));
-    _id = is_highway ? std::rand() % 4 + 1 : 0;
+    _type = is_highway ? std::rand() % 4 + 1 : 0;
 }
 
 Road::~Road() {}
-
-void Road::draw(sf::RenderWindow &w) {
-    w.draw(_sprite);
-}

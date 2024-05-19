@@ -6,7 +6,8 @@
 */
 
 #pragma once
-#include "IScene.hpp"
+#include "../scene/IScene.hpp"
+#include "Car.hpp"
 
 typedef enum road_s {
     ROAD_GRASS,
@@ -21,11 +22,11 @@ public:
     Road(bool is_highway);
     ~Road();
 
-    void draw(sf::RenderWindow &w);
-
 private:
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Vector2i _pos;
-    int _id;
+    std::vector<Car> _list;
+    int _type;
+    int _max_car_count;
 };

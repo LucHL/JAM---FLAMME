@@ -9,6 +9,8 @@ SRC	=	src/main.cpp \
 		src/Game.cpp \
 		src/scene/AScene.cpp \
 		src/scene/Settings.cpp	\
+		src/objects/Car.cpp \
+		src/objects/Road.cpp \
 		src/objects/Player.cpp
 
 OBJ	=	$(SRC:.cpp=.o)

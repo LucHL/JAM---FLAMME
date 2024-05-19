@@ -35,6 +35,9 @@ void Game::playMusic(std::string filename)
 }
 
 void Game::gameLoop() {
+
+    _s->initialize();
+
     while (_window.isOpen()) {
         _window.clear(sf::Color::Black);
 

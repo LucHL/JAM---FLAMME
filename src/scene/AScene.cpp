@@ -9,49 +9,59 @@
 
 AScene::AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t) : _window(win), _t(t)
 {
-    _backgroundText.loadFromFile(backgroundPath);
-    _backgroundSprite.setTexture(_backgroundText);
+    // _backgroundText.loadFromFile(backgroundPath);
+    // _backgroundSprite.setTexture(_backgroundText);
+    createSprite(sf::Vector2f(0,0), backgroundPath, sf::Vector2f(1.57,1.5));
 }
 
 AScene::~AScene() {}
 
-void AScene::update(sf::Event &e) {
+void AScene::update(sf::Event &e)
+{
     return;
 }
 
 void AScene::draw()
 {
-    displaySprite(sf::Vector2f(0,0), "assets/startmenu.png", sf::Vector2f(20,20));
-    displayCircle(50, sf::Color::Green, sf::Vector2f(10,10));
-    displayText("ceci est un text (c fo)", 100, sf::Color::Blue, sf::Vector2f(100,100));
+    for (auto i : _sprite)
+        _window.draw(i);
+    for (auto i : _text)
+        _window.draw(i);
+    for (auto i : _circle)
+        _window.draw(i);
+    for (auto i : _rect)
+        _window.draw(i);
 }
 
-void AScene::initialize() {
-    return;
+void AScene::initialize()
+{
+    createSprite(sf::Vector2f(0,0), "assets/map.png", sf::Vector2f(1.57,1.5));
+    createText("hahaha", 50, sf::Color::Red, sf::Vector2f(100,100));
+    createCircle(50, sf::Color::Green, sf::Vector2f(400,100));
 }
 
-sceneType &AScene::getType() {
+sceneType &AScene::getType()
+{
     return _t;
 }
 
-void AScene::displayText(std::string text, int size, sf::Color color, sf::Vector2f pos)
+void AScene::createText(std::string text, int size, sf::Color color, sf::Vector2f pos)
 {
-    sf::Font font;
     sf::Text to_draw;
 
-    if (!font.loadFromFile("assets/Arial.ttf")) {
+    if (!_font.loadFromFile("assets/Arial.ttf")) {
         std::cerr << "Fail to load font." << std::endl;
         return;
     }
-    to_draw.setFont(font);
+    to_draw.setFont(_font);
     to_draw.setString(text);
     to_draw.setCharacterSize(size);
     to_draw.setFillColor(color);
     to_draw.setPosition(pos.x, pos.y);
-    _window.draw(to_draw);
+    _text.push_back(to_draw);
 }
 
-void AScene::displayRect(sf::Color color, sf::Color border_color, float border_size,
+void AScene::createRect(sf::Color color, sf::Color border_color, float border_size,
     sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size)
 {
     sf::RectangleShape rect;
@@ -63,26 +73,25 @@ void AScene::displayRect(sf::Color color, sf::Color border_color, float border_s
     rect.setPosition(pos.x, pos.y);
     rect.setRotation(rotation_angle);
     rect.setSize(size);
-    _window.draw(rect);
+    _rect.push_back(rect);
 }
 
-void AScene::displayCircle(int ray, sf::Color color, sf::Vector2f position)
+void AScene::createCircle(int ray, sf::Color color, sf::Vector2f position)
 {
     sf::CircleShape circle(ray);
 
     circle.setFillColor(color);
     circle.setPosition(position);
-    _window.draw(circle);
+    _circle.push_back(circle);
 }
 
-void AScene::displaySprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
+void AScene::createSprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
 {
     sf::Sprite sprite;
-    sf::Texture texture;
 
-    texture.loadFromFile(sprite_image);
-    sprite.setTexture(texture);
+    _texture.loadFromFile(sprite_image);
+    sprite.setTexture(_texture);
     sprite.setScale(size);
     sprite.setPosition(pos.x, pos.y);
-    _window.draw(sprite);
+    _sprite.push_back(sprite);
 }

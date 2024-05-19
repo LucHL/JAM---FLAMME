@@ -13,10 +13,9 @@ class AScene : public IScene {
         AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t);
         ~AScene();
 
-        void draw();
+        virtual void draw() = 0;
+        virtual void initialize() = 0;
         void update(sf::Event &e);
-        void initialize();
-        sceneType &getType();
 
     protected:
         sceneType _t;
@@ -25,5 +24,5 @@ class AScene : public IScene {
 
         sf::Texture _texture;
         sf::Sprite _sprite;
-        Btn _button;
+        std::vector<std::shared_ptr<Btn>> _button;
 };

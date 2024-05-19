@@ -24,5 +24,4 @@ class IScene {
         virtual void draw() = 0;
         virtual void update(sf::Event &e) = 0;
         virtual void initialize() = 0;
-        virtual sceneType &getType() = 0;
 };

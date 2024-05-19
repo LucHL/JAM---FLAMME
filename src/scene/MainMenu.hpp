@@ -16,6 +16,4 @@ class MainMenu : public AScene {
         void draw() override;
         void update(sf::Event &e) override;
         void initialize() override;
-
-    private:
 };

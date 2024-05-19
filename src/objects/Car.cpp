@@ -73,6 +73,6 @@ void Car::buildBus() {
 }
 
 void Car::moveCar() {
-    _pos.x = (_dir == 1) ? _pos.x + 20 : _pos.x - 20;
+    _pos.x = (_dir == 1) ? _pos.x + 20 * _speed : _pos.x - 20 * _speed;
     _sprite.setPosition(_pos);
 }

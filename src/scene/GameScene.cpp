@@ -16,6 +16,8 @@ GameScene::~GameScene()
 { 
 }
 
+void GameScene::initialize() {}
+
 void GameScene::draw()
 {
     _player.draw(_window);
@@ -26,9 +28,6 @@ void GameScene::update(sf::Event &e)
     _player.update(e);
 }
 
-void GameScene::initialize()
-{
-    // createText("score ici", 50, sf::Color::Cyan, sf::Vector2f(20, 20));
-    // createRect(sf::Color::White, sf::Color::Black, 1.0f, sf::Vector2f(0, 0),
-    //     sf::Vector2f(1810, 45), 0.0f, sf::Vector2f(70, 50), false);
-}
+// createText("score ici", 50, sf::Color::Cyan, sf::Vector2f(20, 20));
+// createRect(sf::Color::White, sf::Color::Black, 1.0f, sf::Vector2f(0, 0),
+//     sf::Vector2f(1810, 45), 0.0f, sf::Vector2f(70, 50), false);

@@ -21,5 +21,4 @@ class GameScene : public AScene {
     private:
         Player _player;
         sf::Clock _clock;
-
 };

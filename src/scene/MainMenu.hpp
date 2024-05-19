@@ -13,6 +13,7 @@ class MainMenu : public AScene {
         MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType t);
         ~MainMenu();
 
+        void draw() override;
         void update(sf::Event &e) override;
         void initialize() override;
 

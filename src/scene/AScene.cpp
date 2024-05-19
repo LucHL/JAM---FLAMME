@@ -34,9 +34,9 @@ void AScene::draw()
 
 void AScene::initialize()
 {
-    createSprite(sf::Vector2f(0,0), "assets/map.png", sf::Vector2f(1.57,1.5), false);
-    createText("hahaha", 50, sf::Color::Red, sf::Vector2f(100,100));
-    createCircle(50, sf::Color::Green, sf::Vector2f(400,100));
+    // createSprite(sf::Vector2f(0,0), "assets/map.png", sf::Vector2f(1.57,1.5), false);
+    // createText("hahaha", 50, sf::Color::Red, sf::Vector2f(100,100));
+    // createCircle(50, sf::Color::Green, sf::Vector2f(400,100));
 }
 
 sceneType &AScene::getType()

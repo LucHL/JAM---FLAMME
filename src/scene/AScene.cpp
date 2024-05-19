@@ -11,7 +11,7 @@ AScene::AScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t) :
 {
     // _backgroundText.loadFromFile(backgroundPath);
     // _backgroundSprite.setTexture(_backgroundText);
-    createSprite(sf::Vector2f(0,0), backgroundPath, sf::Vector2f(1.57,1.5));
+    // createSprite(sf::Vector2f(0,0), backgroundPath, sf::Vector2f(1.57,1.5));
 }
 
 AScene::~AScene() {}

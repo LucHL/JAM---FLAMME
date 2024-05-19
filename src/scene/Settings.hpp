@@ -11,7 +11,7 @@
 
 class Settings : public AScene {
     public:
-        Settings();
+        Settings(std::string backgroundPath, sf::RenderWindow &win, sceneType t);
         ~Settings();
 
         void scene();

@@ -7,6 +7,7 @@
 
 #include "Game.hpp"
 #include "scene/AScene.hpp"
+#include "scene/Settings.hpp"
 
 Game::Game(sf::RenderWindow &win, sf::Event &event) : _window(win), _event(event)
 {
@@ -20,7 +21,8 @@ void Game::createWindow()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
-    _s = std::make_shared<AScene>(AScene("assets/startmenu.png", _window, sceneType::MAINMENU));
+    // _s = std::make_shared<AScene>(AScene("assets/startmenu.png", _window, sceneType::MAINMENU));
+    _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
 void Game::playMusic(std::string filename)

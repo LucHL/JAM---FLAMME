@@ -7,7 +7,8 @@
 
 SRC	=	src/main.cpp \
 		src/Game.cpp \
-		src/scene/AScene.cpp
+		src/scene/AScene.cpp \
+		src/scene/Settings.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

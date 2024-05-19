@@ -9,7 +9,8 @@
 #include "../main.hpp"
 
 enum sceneType {
-    MAINMENU
+    MAINMENU,
+    SETTINGS
 };
 
 class IScene {

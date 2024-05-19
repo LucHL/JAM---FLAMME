@@ -14,12 +14,8 @@ class Settings : public AScene {
         Settings(std::string backgroundPath, sf::RenderWindow &win, sceneType t);
         ~Settings();
 
-        void scene();
         void update(sf::Event &e) override;
-        void initialize() override;
-
-    protected:
-    private:
+        void draw();
 };
 
 #endif /* !SETTINGS_HPP_ */

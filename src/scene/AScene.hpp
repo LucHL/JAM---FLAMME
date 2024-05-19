@@ -16,7 +16,6 @@ class AScene : public IScene {
         ~AScene();
 
         virtual void draw() = 0;
-        virtual void initialize() = 0;
         void update(sf::Event &e);
 
     protected:
@@ -24,7 +23,7 @@ class AScene : public IScene {
         sf::RenderWindow &_window;
         sf::Font _font;
 
-        sf::Texture _texture;
-        sf::Sprite _sprite;
-        std::vector<std::shared_ptr<IBtn>> _button;
+        sf::Texture _bgTexture;
+        sf::Sprite _bgSprite;
+        std::vector<std::unique_ptr<IBtn>> _button;
 };

@@ -13,7 +13,7 @@ GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneTyp
 }
 
 GameScene::~GameScene()
-{ 
+{
 }
 
 void GameScene::initialize() {}

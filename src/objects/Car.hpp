@@ -10,7 +10,7 @@
 
 class Car {
 public:
-    Car(int id);
+    Car(int id, int pos_y);
     ~Car();
 
     bool isPlayerCollision();

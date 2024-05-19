@@ -7,18 +7,18 @@
 
 #include "Road.hpp"
 
-Road::Road(bool isHighway, int maxCarCount) {
+Road::Road(bool isHighway, int maxCarCount, int pos_y) {
     std::srand(std::time(nullptr));
     _isHighway = isHighway;
     _type = std::rand() % 4;
     _carCount = 0;
     _maxCarCount = maxCarCount;
     _pos.x = 0;
-    _pos.y = 0;
+    _pos.y = pos_y;
     // remplir de voitures jusqu'à lim voie + luck
     if (_isHighway) {
         for (int i = 0; i < _type + 1; ++i)
-            createCar(std::make_shared<Car>(_carCount++));
+            createCar(std::make_shared<Car>(_carCount++, pos_y));
         buildHighway();
     } else
         buildGrass();

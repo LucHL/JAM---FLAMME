@@ -11,7 +11,7 @@
 
 class Road {
 public:
-    Road(bool isHighway, int maxCarCount);
+    Road(bool isHighway, int maxCarCount, int pos_y);
     ~Road();
 
     void buildHighway();

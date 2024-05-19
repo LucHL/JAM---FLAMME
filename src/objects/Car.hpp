@@ -10,12 +10,13 @@
 
 class Car {
 public:
-    Car();
+    Car(int id);
     ~Car();
 
     bool isPlayerCollision();
     void buildClassic();
     void buildBus();
+    void moveCar();
     void draw(sf::RenderWindow &w);
 
 private:

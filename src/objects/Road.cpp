@@ -11,15 +11,18 @@ Road::Road(bool isHighway, int maxCarCount) {
     std::srand(std::time(nullptr));
     _isHighway = isHighway;
     _type = std::rand() % 4;
+    _carCount = 0;
     _maxCarCount = maxCarCount;
     _pos.x = 0;
     _pos.y = 0;
     // remplir de voitures jusqu'à lim voie + luck
-    createCar(std::make_shared<Car>());
-    if (_isHighway)
+    if (_isHighway) {
+        for (int i = 0; i < _type + 1; ++i)
+            createCar(std::make_shared<Car>(_carCount++));
         buildHighway();
-    else
+    } else
         buildGrass();
+    _spriteRoad.setScale((sf::Vector2f){0.92f, 0.92f});
 }
 
 Road::~Road() {}
@@ -33,6 +36,14 @@ void Road::draw(sf::RenderWindow &w) {
 
 void Road::createCar(std::shared_ptr<Car> car) {
     _list.push_back(car);
+}
+
+void Road::update() {
+    for (auto &car : _list){
+        (*car).moveCar();
+        if ((*car).isPlayerCollision())
+            exit(0);
+    }
 }
 
 void Road::buildHighway() {

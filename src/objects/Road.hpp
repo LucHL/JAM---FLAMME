@@ -16,8 +16,9 @@ public:
 
     void buildHighway();
     void buildGrass();
-    void draw(sf::RenderWindow &w);
     void createCar(std::shared_ptr<Car> car);
+    void update();
+    void draw(sf::RenderWindow &w);
 
 private:
     sf::Texture _textureRoad;
@@ -28,5 +29,6 @@ private:
     std::vector<std::shared_ptr<Car>> _list;
     bool _isHighway;
     int _type;
+    int _carCount;
     int _maxCarCount;
 };

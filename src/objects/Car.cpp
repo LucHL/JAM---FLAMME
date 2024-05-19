@@ -7,18 +7,24 @@
 
 #include "Car.hpp"
 
-Car::Car() {
+Car::Car(int id) {
     std::srand(std::time(nullptr));
     _color = std::rand() % 4;
     _type = std::rand() % 2;
     _dir = std::rand() % 2;
     _speed = 1;
-    _pos.x = 0;
-    _pos.y = 0;
-    if (_type == 0)
+    if (_type == 0) {
+        _pos.x = (_dir == 1) ? -55 : 1840;
+        _pos.y = 3 + id * 96 - id * 15;
         buildClassic();
-    else
+        _sprite.setScale((sf::Vector2f){0.65f, 0.65f});
+    } else {
+        _pos.x = (_dir == 1) ? -75 : 1830;
+        _pos.y = 10 + id * 96 - id * 15;
         buildBus();
+        _sprite.setScale((sf::Vector2f){0.45f, 0.45f});
+    }
+    _sprite.setPosition(_pos);
 }
 
 Car::~Car() {}
@@ -64,4 +70,9 @@ void Car::buildBus() {
     rect.width = 336;
     _texture.loadFromFile("assets/characters/bus_2.png", rect);
     _sprite.setTexture(_texture, true);
+}
+
+void Car::moveCar() {
+    _pos.x = (_dir == 1) ? _pos.x + 20 : _pos.x - 20;
+    _sprite.setPosition(_pos);
 }

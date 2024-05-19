@@ -9,6 +9,7 @@
     #define GAME_HPP_
     #include "main.hpp"
     #include "scene/IScene.hpp"
+    #include "objects/Player.hpp"
 
 class Game {
     public:
@@ -25,6 +26,7 @@ class Game {
         sf::Event &_event;
         std::unordered_map<std::size_t, std::shared_ptr<IScene>> _scenes;
         std::shared_ptr<IScene> _s;
+        Player _player;
 };
 
 #endif /* !GAME_HPP_ */

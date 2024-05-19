@@ -44,7 +44,7 @@ void Game::gameLoop() {
         _window.clear(sf::Color::Black);
 
         handleEvent();
-
+        _window.draw(_player.getSprite());
         _window.display();
     }
 }
@@ -55,6 +55,12 @@ void Game::handleEvent()
         if (_event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             _window.close();
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            _player.setPosition((sf::Vector2f){-20, 0});
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            _player.setPosition((sf::Vector2f){20, 0});
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            _player.setPosition((sf::Vector2f){0, -20});
     }
     _s->update(_event);
     _s->draw();

@@ -24,8 +24,8 @@ void Btn::update(sf::Event &e, sceneType t) {
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);
     if (mp.x >= _pos.x && mp.x <= _relPos.x && mp.y >= _pos.y && mp.y <= _relPos.y) {
         _sprite.setColor(over);
-        if (e.type == sf::Event::MouseButtonPressed)
-            currentScene = t;
+        // if (e.type == sf::Event::MouseButtonPressed)
+        //     currentScene = t;
     } else
         _sprite.setColor(base);
 }

@@ -10,7 +10,6 @@
 MainMenu::MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
-    createSprite(sf::Vector2f(0, 0), backgroundPath, sf::Vector2f(100, 100), true);
 }
 
 MainMenu::~MainMenu()

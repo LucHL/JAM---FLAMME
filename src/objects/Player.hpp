@@ -13,9 +13,10 @@ class Player
     public:
         Player();
         ~Player();
-        sf::Sprite &getSprite();
-        void setPosition(sf::Vector2f pos);
+
+        void changePlayerPos(sf::Vector2f pos);
         void update(sf::Event &e);
+        void draw(sf::RenderWindow &w);
 
     private:
         sf::Vector2f _pos;

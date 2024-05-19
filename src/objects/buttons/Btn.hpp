@@ -6,12 +6,11 @@
 */
 
 #pragma once
-#include "IBtn.hpp"
-#include "../main.hpp"
-#include "../scene/IScene.hpp"
+#include "../../scene/IScene.hpp"
 
-class Btn : public IBtn {
+class Btn {
     public:
+        Btn() {};
         Btn(std::string path, sf::Vector2f p, sf::Vector2f len);
         ~Btn();
 

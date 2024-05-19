@@ -12,10 +12,7 @@ MainMenu::MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType 
 {
 }
 
-MainMenu::~MainMenu()
-{
-    
-}
+MainMenu::~MainMenu() {}
 
 void MainMenu::draw()
 {
@@ -37,3 +34,4 @@ void MainMenu::initialize()
     _button.push_back(std::make_shared<Btn>
         (Btn("assets/button/new_exit.png", sf::Vector2f(1050,550), sf::Vector2f(330,108))));
 }
+

@@ -7,22 +7,21 @@
 
 #include "StartBtn.hpp"
 
-StartBtn::StartBtn(): ABtn("assets/button/new_play.png", sf::Vector2f(100, 100)) {
-    _pos = sf::Vector2f(100, 100);
-    _len = sf::Vector2f(300, 108);
-    _relPos = sf::Vector2f(_pos.x + _len.x, _pos.y + _len.y);
-}
+StartBtn::StartBtn(): ABtn("assets/button/new_play.png", sf::Vector2f(100, 100)) {}
 
 StartBtn::~StartBtn() {}
 
-void StartBtn::update(sf::Event &e) {
-    sf::Vector2i mp = sf::Mouse::getPosition();
+void StartBtn::update(sf::Event &e, sf::RenderWindow &w) {
+    sf::Vector2i mp = sf::Mouse::getPosition(w);
     sf::Color base = _sprite.getColor();
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);
-    if (mp.x >= _pos.x && mp.x <= _relPos.x && mp.y >= _pos.y && mp.y <= _relPos.y) {
+    if (isMouseOver(w)) {
         _sprite.setColor(over);
-        // if (e.type == sf::Event::MouseButtonPressed)
-        //     currentScene = t;
+        std::cerr << "in" << std::endl;
+        if (e.type == sf::Event::MouseButtonPressed)
+            std::cerr << "click" << std::endl;
+
+            // currentScene = t;
     } else
         _sprite.setColor(base);
 }

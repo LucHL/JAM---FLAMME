@@ -15,7 +15,8 @@ class ABtn : public IBtn {
         ~ABtn();
 
         void draw(sf::RenderWindow &w);
-        virtual void update(sf::Event &e) = 0;
+        virtual void update(sf::Event &e, sf::RenderWindow &w) = 0;
+        bool isMouseOver(sf::RenderWindow &w);
 
     protected:
         sf::Texture _texture;

@@ -13,8 +13,5 @@ class StartBtn : public ABtn {
         StartBtn();
         ~StartBtn();
 
-        void update(sf::Event &e);
-        sf::Vector2f _pos;
-        sf::Vector2f _len;
-        sf::Vector2f _relPos;
+        void update(sf::Event &e, sf::RenderWindow &w);
 };

@@ -6,7 +6,7 @@
 */
 
 #pragma once
-#include "../objects/buttons/Btn.hpp"
+#include "../objects/buttons/StartBtn.hpp"
 
 class AScene : public IScene {
     public:

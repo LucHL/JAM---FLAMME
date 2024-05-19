@@ -26,4 +26,5 @@ class AScene : public IScene {
         sf::Texture _bgTexture;
         sf::Sprite _bgSprite;
         std::vector<std::unique_ptr<IBtn>> _button;
+        std::unique_ptr<sf::Music> _music;
 };

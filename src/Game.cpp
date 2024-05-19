@@ -28,29 +28,14 @@ void Game::createWindow()
     // _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
-void Game::playMusic(std::string filename)
-{
-    sf::Music music;
-
-    if (!music.openFromFile(filename)) {
-        std::cerr << "Fail to load music." << std::endl;
-        return;
-    }
-    music.play();
-}
-
 void Game::gameLoop()
 {
-    Pixel p;
-    std::vector<Pixel> pixels(500);
-    p.initializePixels(pixels);
     _s->initialize();
 
     while (_window.isOpen()) {
         _window.clear(sf::Color::Black);
 
         handleEvent();
-        p.simulateFlame(pixels, sf::Vector2f(10,10));
         _window.display();
     }
 }

@@ -14,5 +14,6 @@
     #include <iostream>
     #include <unordered_map>
     #include <memory>
+    #include <cmath>
 
 #endif /* !MAIN_HPP_ */

@@ -54,3 +54,15 @@ void Pixel::simulateFlame(std::vector<Pixel> &pixels, sf::Vector2f source)
         }
     }
 }
+
+void Pixel::displayPixel(std::vector<Pixel> &pixels, sf::RenderWindow &win)
+{
+    for (auto &pixel : pixels) {
+        if (pixel.active) {
+            sf::RectangleShape pixelShape(sf::Vector2f(4, 4)); // Assurez-vous que la taille est correcte
+            pixelShape.setPosition(pixel.position);
+            pixelShape.setFillColor(pixel.color);
+            win.draw(pixelShape);
+        }
+    }
+}

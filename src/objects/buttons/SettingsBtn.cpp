@@ -2,16 +2,18 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** StartBtn
+** SettingsBtn
 */
 
-#include "StartBtn.hpp"
+#include "SettingsBtn.hpp"
 
-StartBtn::StartBtn(sf::Vector2f pos): ABtn("assets/button/new_play.png", pos) {}
+SettingsBtn::SettingsBtn(sf::Vector2f pos): ABtn("assets/button/new_settings.png", pos) {}
 
-StartBtn::~StartBtn() {}
+SettingsBtn::~SettingsBtn()
+{
+}
 
-void StartBtn::update(sf::Event &e, sf::RenderWindow &w) {
+void SettingsBtn::update(sf::Event &e, sf::RenderWindow &w) {
     sf::Vector2i mp = sf::Mouse::getPosition(w);
     sf::Color base = _sprite.getColor();
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);

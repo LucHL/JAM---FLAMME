@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** StartBtn
+** SettingsBtn
 */
 
 #pragma once
 #include "ABtn.hpp"
 
-class StartBtn : public ABtn {
+class SettingsBtn : public ABtn {
     public:
-        StartBtn(sf::Vector2f pos);
-        ~StartBtn();
+        SettingsBtn(sf::Vector2f pos);
+        ~SettingsBtn();
 
         void update(sf::Event &e, sf::RenderWindow &w);
 };

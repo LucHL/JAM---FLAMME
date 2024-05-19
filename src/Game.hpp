@@ -18,7 +18,6 @@ class Game {
         void createWindow();
         void handleEvent();
         void gameLoop();
-        void playMusic(std::string filename);
         void changeScene(sceneType);
 
     private:

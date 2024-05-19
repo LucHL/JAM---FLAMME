@@ -10,6 +10,10 @@
 MainMenu::MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
+    _music = std::make_unique<sf::Music>();
+    if (!_music->openFromFile("assets/music/Spider-Man-2-The-Game-Pizza-Theme.ogg"))
+        std::cerr << "Fail to load music." << std::endl;
+    _music->play();
     _button.push_back(std::make_unique<StartBtn>(sf::Vector2f(800,300)));
     _button.push_back(std::make_unique<SettingsBtn>(sf::Vector2f(600,500)));
     _button.push_back(std::make_unique<ExitBtn>(sf::Vector2f(1000, 500)));

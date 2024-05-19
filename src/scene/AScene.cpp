@@ -35,7 +35,7 @@ void AScene::draw()
 
 void AScene::initialize()
 {
-    createSprite(sf::Vector2f(0,0), "assets/map.png", sf::Vector2f(1.57,1.5));
+    createSprite(sf::Vector2f(0,0), "assets/map.png", sf::Vector2f(1.57,1.5), false);
     createText("hahaha", 50, sf::Color::Red, sf::Vector2f(100,100));
     createCircle(50, sf::Color::Green, sf::Vector2f(400,100));
 }
@@ -62,14 +62,19 @@ void AScene::createText(std::string text, int size, sf::Color color, sf::Vector2
 }
 
 void AScene::createRect(sf::Color color, sf::Color border_color, float border_size,
-    sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size)
+    sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size, bool NeedCenter)
 {
     sf::RectangleShape rect;
+    sf::FloatRect HitBox;
 
     rect.setFillColor(color);
     rect.setOutlineColor(border_color);
     rect.setOutlineThickness(border_size);
     rect.setOrigin(origin_pos.x, origin_pos.y);
+    if (NeedCenter) {
+        HitBox = rect.getLocalBounds();
+        rect.setOrigin(HitBox.width / 2, HitBox.height / 2);
+    }
     rect.setPosition(pos.x, pos.y);
     rect.setRotation(rotation_angle);
     rect.setSize(size);
@@ -85,13 +90,18 @@ void AScene::createCircle(int ray, sf::Color color, sf::Vector2f position)
     _circle.push_back(circle);
 }
 
-void AScene::createSprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size)
+void AScene::createSprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size, bool NeedCenter)
 {
     sf::Sprite sprite;
+    sf::FloatRect HitBox;
 
     _texture.loadFromFile(sprite_image);
     sprite.setTexture(_texture);
     sprite.setScale(size);
+    if (NeedCenter) {
+        HitBox = sprite.getLocalBounds();
+        sprite.setOrigin(HitBox.width / 2, HitBox.height / 2);
+    }
     sprite.setPosition(pos.x, pos.y);
     _sprite.push_back(sprite);
 }

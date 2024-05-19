@@ -32,4 +32,5 @@ void MainMenu::initialize()
 {
     _button.push_back(std::make_shared<StartBtn>(StartBtn(sf::Vector2f(780,300))));
     _button.push_back(std::make_shared<SettingsBtn>(SettingsBtn(sf::Vector2f(600,500))));
+    _button.push_back(std::make_shared<ExitBtn>(ExitBtn(sf::Vector2f(900, 500))));
 }

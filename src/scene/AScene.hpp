@@ -8,6 +8,7 @@
 #pragma once
 #include "../objects/buttons/StartBtn.hpp"
 #include "../objects/buttons/SettingsBtn.hpp"
+#include "../objects/buttons/ExitBtn.hpp"
 
 class AScene : public IScene {
     public:

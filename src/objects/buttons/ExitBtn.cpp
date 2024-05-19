@@ -2,24 +2,24 @@
 ** EPITECH PROJECT, 2024
 ** JAM---FLAMME
 ** File description:
-** StartBtn
+** ExitBtn
 */
 
-#include "StartBtn.hpp"
+#include "ExitBtn.hpp"
 
-StartBtn::StartBtn(sf::Vector2f pos): ABtn("assets/button/new_play.png", pos) {}
+ExitBtn::ExitBtn(sf::Vector2f pos) : ABtn("assets/button/new_exit.png", pos) {}
 
-StartBtn::~StartBtn() {}
+ExitBtn::~ExitBtn() {}
 
-void StartBtn::update(sf::Event &e, sf::RenderWindow &w) {
+void ExitBtn::update(sf::Event &e, sf::RenderWindow &w) {
     sf::Vector2i mp = sf::Mouse::getPosition(w);
     sf::Color base = _sprite.getColor();
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);
     if (isMouseOver(w)) {
         _sprite.setColor(over);
-        if (e.type == sf::Event::MouseButtonPressed);
+        if (e.type == sf::Event::MouseButtonPressed)
+            w.close();
 
-            // currentScene = t;
     } else
         _sprite.setColor(base);
 }

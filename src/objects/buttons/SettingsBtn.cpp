@@ -19,9 +19,7 @@ void SettingsBtn::update(sf::Event &e, sf::RenderWindow &w) {
     sf::Color over(base.r - 10, base.g - 10, base.b - 10);
     if (isMouseOver(w)) {
         _sprite.setColor(over);
-        std::cerr << "in" << std::endl;
-        if (e.type == sf::Event::MouseButtonPressed)
-            std::cerr << "click" << std::endl;
+        if (e.type == sf::Event::MouseButtonPressed);
 
             // currentScene = t;
     } else

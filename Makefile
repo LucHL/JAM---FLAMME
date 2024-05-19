@@ -15,7 +15,8 @@ SRC	=	src/main.cpp \
 		src/objects/Player.cpp \
 		src/objects/buttons/ABtn.cpp \
 		src/objects/buttons/StartBtn.cpp \
-		src/objects/buttons/SettingsBtn.cpp
+		src/objects/buttons/SettingsBtn.cpp \
+		src/objects/buttons/ExitBtn.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

@@ -20,10 +20,10 @@ void GameScene::draw()
 {
     //for (auto &i : _sprite)
       //  _window.draw(i);
-    for (auto &i : _text)
-        _window.draw(i);
-    for (auto &i : _rect)
-        _window.draw(i);
+    // for (auto &i : _text)
+    //     _window.draw(i);
+    // for (auto &i : _rect)
+    //     _window.draw(i);
 }
 
 void GameScene::update(sf::Event &e)
@@ -33,7 +33,7 @@ void GameScene::update(sf::Event &e)
 
 void GameScene::initialize()
 {
-    createText("score ici", 50, sf::Color::Cyan, sf::Vector2f(20, 20));
-    createRect(sf::Color::White, sf::Color::Black, 1.0f, sf::Vector2f(0, 0),
-        sf::Vector2f(1810, 45), 0.0f, sf::Vector2f(70, 50), false);
+    // createText("score ici", 50, sf::Color::Cyan, sf::Vector2f(20, 20));
+    // createRect(sf::Color::White, sf::Color::Black, 1.0f, sf::Vector2f(0, 0),
+    //     sf::Vector2f(1810, 45), 0.0f, sf::Vector2f(70, 50), false);
 }

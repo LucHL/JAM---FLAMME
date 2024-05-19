@@ -31,5 +31,6 @@ void Btn::update(sf::Event &e, sceneType t) {
 }
 
 void Btn::draw(sf::RenderWindow &w) {
+    _sprite.setTexture(_texture);
     w.draw(_sprite);
 }

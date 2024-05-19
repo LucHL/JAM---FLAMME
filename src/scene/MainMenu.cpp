@@ -27,11 +27,5 @@ void MainMenu::update(sf::Event &e)
 
 void MainMenu::initialize()
 {
-    _button.push_back(std::make_shared<Btn>
-        (Btn("assets/button/new_play.png", sf::Vector2f(800,350), sf::Vector2f(330,108))));
-    _button.push_back(std::make_shared<Btn>
-        (Btn("assets/button/new_settings.png", sf::Vector2f(550,550), sf::Vector2f(330,108))));
-    _button.push_back(std::make_shared<Btn>
-        (Btn("assets/button/new_exit.png", sf::Vector2f(1050,550), sf::Vector2f(330,108))));
+    _button.push_back(std::make_shared<StartBtn>(StartBtn()));
 }
-

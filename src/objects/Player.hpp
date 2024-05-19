@@ -10,13 +10,15 @@
 
 class Player
 {
-private:
-    sf::Vector2f _pos;
-    sf::Texture _texture;
-    sf::Sprite _sprite;
-public:
-    Player(/* args */);
-    sf::Sprite &getSprite();
-    void setPosition(sf::Vector2f pos);
-    ~Player();
+    public:
+        Player();
+        ~Player();
+        sf::Sprite &getSprite();
+        void setPosition(sf::Vector2f pos);
+        void update(sf::Event &e);
+
+    private:
+        sf::Vector2f _pos;
+        sf::Texture _texture;
+        sf::Sprite _sprite;
 };

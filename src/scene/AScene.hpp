@@ -24,14 +24,7 @@ class AScene : public IScene {
         void createCircle(int ray, sf::Color color, sf::Vector2f position);
         void createSprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size, bool NeedCenter);
 
-        // void displayText();
-        // void displayRect();
-        // void displayCircle();
-        // void displaySprite();
-
     private:
-        // sf::Texture _backgroundText;
-        // sf::Sprite _backgroundSprite;
         sceneType _t;
         sf::RenderWindow &_window;
         sf::Font _font;

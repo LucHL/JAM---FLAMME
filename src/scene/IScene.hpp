@@ -17,8 +17,8 @@ class IScene {
     public:
         virtual ~IScene() = default;
 
-        virtual void update(sf::Event &e) = 0;
         virtual void draw() = 0;
+        virtual void update(sf::Event &e) = 0;
         virtual void initialize() = 0;
         virtual sceneType &getType() = 0;
 
@@ -28,9 +28,4 @@ class IScene {
             sf::Vector2f origin_pos, sf::Vector2f pos, float rotation_angle, sf::Vector2f size, bool NeedCenter) = 0;
         virtual void createCircle(int ray, sf::Color color, sf::Vector2f position) = 0;
         virtual void createSprite(sf::Vector2f pos, std::string sprite_image, sf::Vector2f size, bool NeedCenter) = 0;
-
-        // virtual void displayText() = 0;
-        // virtual void displayRect() = 0;
-        // virtual void displayCircle() = 0;
-        // virtual void displaySprite() = 0;
 };

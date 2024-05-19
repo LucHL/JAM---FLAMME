@@ -21,8 +21,8 @@ void Game::createWindow()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
-    // _s = std::make_shared<AScene>(AScene("assets/startmenu.png", _window, sceneType::MAINMENU));
-    _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
+    _s = std::make_shared<AScene>(AScene("assets/startmenu.png", _window, sceneType::MAINMENU));
+    // _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
 void Game::playMusic(std::string filename)
@@ -44,7 +44,6 @@ void Game::gameLoop() {
         _window.clear(sf::Color::Black);
 
         handleEvent();
-        _window.draw(_player.getSprite());
         _window.display();
     }
 }
@@ -55,13 +54,9 @@ void Game::handleEvent()
         if (_event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             _window.close();
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            _player.setPosition((sf::Vector2f){-20, 0});
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            _player.setPosition((sf::Vector2f){20, 0});
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            std::cout << "Flèche de haut" << std::endl;
+        _s->update(_event);
+        _player.update(_event);
     }
-    _s->update(_event);
     _s->draw();
+    _window.draw(_player.getSprite());
 }

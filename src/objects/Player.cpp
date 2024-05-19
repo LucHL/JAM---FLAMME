@@ -15,7 +15,12 @@ Player::Player()
     _pos.y = 0;
 }
 
-sf::Sprite &Player::getSprite() {
+Player::~Player()
+{
+}
+
+sf::Sprite &Player::getSprite()
+{
     return _sprite;
 }
 
@@ -26,6 +31,12 @@ void Player::setPosition(sf::Vector2f pos)
     _sprite.setPosition(_pos);
 }
 
-Player::~Player()
+void Player::update(sf::Event &e)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        _sprite.setPosition((sf::Vector2f){-50, 0});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        _sprite.setPosition((sf::Vector2f){50, 0});
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        std::cout << "Flèche de haut" << std::endl;
 }

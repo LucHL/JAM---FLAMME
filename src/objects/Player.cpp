@@ -17,6 +17,7 @@ Player::Player()
     _sprite.setTexture(_texture, true);
     _pos.x = 944;
     _pos.y = 920;
+    _sprite.setPosition(_pos);
     _state = 0;
 }
 
@@ -50,7 +51,6 @@ void Player::movePlayerUp() {
         changePlayerSkin(128, 224);
     if (_state == 2)
         changePlayerSkin(128, 320);
-    std::cout << "Flèche de haut" << std::endl;
 }
 
 void Player::movePlayerLeft() {

@@ -13,9 +13,9 @@ class Pixel {
         Pixel();
         ~Pixel();
 
-        void initializePixels(std::vector<Pixel> &pixels);
-        void simulateFlame(std::vector<Pixel> &pixels, sf::Vector2f source);
-        void displayPixel(std::vector<Pixel> &pixels, sf::RenderWindow &win);
+        void initializePixels();
+        void simulateFlame(sf::Vector2f source);
+        void displayPixel(sf::RenderWindow &win);
 
     private:
         sf::Vector2f position;
@@ -23,4 +23,5 @@ class Pixel {
         sf::Color color;
         bool active;
         sf::Clock lifespan;
+        std::vector<std::unique_ptr<Pixel>> _pixels;
 };

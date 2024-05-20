@@ -14,7 +14,7 @@ GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneTyp
     if (!_music->openFromFile("assets/music/SUBWAY-SURFERS-_Main-Theme_.ogg"))
         std::cerr << "Fail to load music." << std::endl;
     _music->play();
-    _builderPos = 920;
+    _builderPos = 1007;
     _isHighway = false;
 }
 
@@ -38,7 +38,6 @@ void GameScene::update(sf::Event &e)
     _player.update(e);
 }
 
-int GameScene::createRoad(std::shared_ptr<Road> road) {
+void GameScene::createRoad(std::shared_ptr<Road> road) {
     _list.push_back(road);
-    return road->getRoadSize();
 }

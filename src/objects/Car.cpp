@@ -7,7 +7,7 @@
 
 #include "Car.hpp"
 
-Car::Car(int id, int pos_y) {
+Car::Car(int id, int pos_y, int road_size) {
     std::srand(std::time(nullptr));
     _color = std::rand() % 4;
     _type = std::rand() % 2;
@@ -15,12 +15,12 @@ Car::Car(int id, int pos_y) {
     _speed = 1;
     if (_type == 0) {
         _pos.x = (_dir == 1) ? -55 : 1840;
-        _pos.y = pos_y + 3 + id * 96 - id * 15;
+        _pos.y = pos_y - road_size * 0.92f + 3 + id * 96 - id * 15;
         buildClassic();
         _sprite.setScale((sf::Vector2f){0.65f, 0.65f});
     } else {
         _pos.x = (_dir == 1) ? -75 : 1830;
-        _pos.y = pos_y + 10 + id * 96 - id * 15;
+        _pos.y = pos_y - road_size * 0.92f + 10 + id * 96 - id * 15;
         buildBus();
         _sprite.setScale((sf::Vector2f){0.45f, 0.45f});
     }

@@ -21,14 +21,13 @@ void Game::createWindow() {
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
-    _s = std::make_unique<MainMenu>("assets/startmenu.png", _window, sceneType::MAINMENU);
+    _s = std::make_unique<MainMenu>("assets/startmenutest.png", _window, sceneType::MAINMENU);
 }
 
 void Game::gameLoop()
 {
     while (_window.isOpen()) {
         _window.clear(sf::Color::White);
-
         handleEvent();
         _window.display();
     }
@@ -38,16 +37,13 @@ void Game::changeScene(sceneType t) {
     switch (t)
     {
     case sceneType::SETTINGS:
-        std::cerr << "change to settings" << std::endl;
-        _s.reset(std::make_unique<Settings>("", _window, sceneType::SETTINGS).release());
+        _s.reset(std::make_unique<Settings>("assets/settings.png", _window, sceneType::SETTINGS).release());
         break;
     case sceneType::GAMESCENE:
-        std::cerr << "change to gamescene" << std::endl;
         _s.reset(std::make_unique<GameScene>("", _window, sceneType::GAMESCENE).release());
         break;
     default:
-        std::cerr << "change to main menu" << std::endl;
-        _s.reset(std::make_unique<MainMenu>("assets/startmenu.png", _window, sceneType::MAINMENU).release());
+        _s.reset(std::make_unique<MainMenu>("assets/startmenutest.png", _window, sceneType::MAINMENU).release());
     }
 }
 
@@ -56,7 +52,6 @@ void Game::handleEvent() {
         if (_event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             _window.close();
         }
-        _s->update(_event);
 
         SceneManager &inst = SceneManager::getInstance();
         if (inst.isChange()) {
@@ -65,5 +60,6 @@ void Game::handleEvent() {
         }
 
     }
+    _s->update(_event);
     _s->draw();
 }

@@ -7,7 +7,9 @@
 
 #include "LessVolume.hpp"
 
-LessVolumeBtn::LessVolumeBtn(sf::Vector2f pos): ABtn("assets/button/less.png", pos) {}
+LessVolumeBtn::LessVolumeBtn(sf::Vector2f pos): ABtn("assets/button/minus.png", pos) {
+    _sprite.scale(0.2f, 0.2f);
+}
 
 LessVolumeBtn::~LessVolumeBtn()
 {

@@ -7,11 +7,11 @@
 
 #include "MoreVolume.hpp"
 
-MoreVolumeBtn::MoreVolumeBtn(sf::Vector2f pos): ABtn("assets/button/more.png", pos) {}
-
-MoreVolumeBtn::~MoreVolumeBtn()
-{
+MoreVolumeBtn::MoreVolumeBtn(sf::Vector2f pos): ABtn("assets/button/plus.png", pos) {
+    _sprite.scale(0.1f, 0.1f);
 }
+
+MoreVolumeBtn::~MoreVolumeBtn() {}
 
 void MoreVolumeBtn::update(sf::Event &e, sf::RenderWindow &w) {
     sf::Vector2i mp = sf::Mouse::getPosition();

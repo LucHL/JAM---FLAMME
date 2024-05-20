@@ -6,6 +6,7 @@
 */
 
 #include "Road.hpp"
+#include "../scene/SceneManager.hpp"
 
 Road::Road(bool isHighway, int maxCarCount, int *builderPos, unsigned int *gameSeed) {
     std::srand(*gameSeed);
@@ -52,11 +53,14 @@ sf::Sprite &Road::getCollisionSprite() {
     return _spriteCollision;
 }
 
-void Road::update() {
+void Road::update(sf::Sprite &playerSprite) {
     for (auto &car : _list){
         car->moveCar();
-        if (car->isPlayerCollision())
-            exit(0);
+        if (car->isPlayerCollision(playerSprite)){
+            SceneManager &inst = SceneManager::getInstance();
+            inst.setChange(true);
+            inst.changeScene(sceneType::MAINMENU);
+        }
     }
 }
 

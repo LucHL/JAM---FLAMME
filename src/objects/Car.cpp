@@ -30,8 +30,11 @@ Car::Car(int id, int pos_y, int road_size, unsigned int *gameSeed) {
 
 Car::~Car() {}
 
-bool Car::isPlayerCollision() {
-    return false;
+bool Car::isPlayerCollision(const sf::Sprite &playerSprite) {
+    sf::FloatRect collisionBox1 = _sprite.getGlobalBounds();
+    sf::FloatRect collisionBox2 = playerSprite.getGlobalBounds();
+
+    return collisionBox1.intersects(collisionBox2);
 }
 
 void Car::draw(sf::RenderWindow &w) {

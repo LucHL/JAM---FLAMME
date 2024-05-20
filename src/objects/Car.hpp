@@ -13,7 +13,7 @@ public:
     Car(int id, int pos_y, int road_size, unsigned int *gameSeed);
     ~Car();
 
-    bool isPlayerCollision();
+    bool isPlayerCollision(const sf::Sprite &playerSprite);
     void buildClassic();
     void buildBus();
     void moveCar();

@@ -21,6 +21,7 @@ class Player
         bool checkPlayerCollision(const sf::Sprite &collision, sf::Vector2f newPos);
         void changePlayerPos(sf::Vector2f pos);
         void changePlayerSkin(int top, int left);
+        sf::Sprite &getCollisionSprite();
         void update(sf::Event &e, std::vector<std::shared_ptr<Road>> _list, int *builderPos);
         void draw(sf::RenderWindow &w);
 

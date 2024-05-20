@@ -117,6 +117,10 @@ void Player::update(sf::Event &e, std::vector<std::shared_ptr<Road>> road, int *
         movePlayerRight(road);
 }
 
+sf::Sprite &Player::getCollisionSprite() {
+    return _sprite;
+}
+
 void Player::draw(sf::RenderWindow &w)
 {
     w.draw(_sprite);

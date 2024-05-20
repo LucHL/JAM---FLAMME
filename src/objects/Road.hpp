@@ -19,7 +19,7 @@ public:
     void createCar(std::shared_ptr<Car> car);
     void moveWorldRoad();
     sf::Sprite &getCollisionSprite();
-    void update();
+    void update(sf::Sprite &playerSprite);
     void draw(sf::RenderWindow &w);
 
 private:

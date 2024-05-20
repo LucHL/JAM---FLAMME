@@ -44,7 +44,7 @@ void GameScene::update(sf::Event &e)
     std::cout << _time.asMilliseconds() << std::endl;
     if (_time.asMilliseconds() >= 4 || _time.asMilliseconds() == 0) {
         for (auto &road : _list)
-            road->update();
+            road->update(_player.getCollisionSprite());
         _clock.restart();
     }
 }

@@ -40,7 +40,7 @@ jobs:
             fi
         - name: Check executables
           run: |
-              if ! test -x ./42sh; then
+              if ! test -x ./flamme then
                 echo "::error file=$executable::Executable $executable is missing or not executable."
                 exit 1
               else

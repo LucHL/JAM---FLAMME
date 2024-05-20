@@ -10,6 +10,7 @@
 MainMenu::MainMenu(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
+    _p.initializePixels();
     _music = std::make_unique<sf::Music>();
     if (!_music->openFromFile("assets/music/Spider-Man-2-The-Game-Pizza-Theme.ogg"))
         std::cerr << "Fail to load music." << std::endl;
@@ -27,6 +28,8 @@ void MainMenu::draw()
     _window.draw(_bgSprite);
     for (auto &i : _button)
         i->draw(_window);
+    _p.simulateFlame(static_cast<sf::Vector2f>(sf::Mouse::getPosition()));
+    _p.displayPixel(_window);
 }
 
 void MainMenu::update(sf::Event &e)

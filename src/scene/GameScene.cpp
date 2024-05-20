@@ -10,6 +10,10 @@
 GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
+    _music = std::make_unique<sf::Music>();
+    if (!_music->openFromFile("assets/music/SUBWAY-SURFERS-_Main-Theme_.ogg"))
+        std::cerr << "Fail to load music." << std::endl;
+    _music->play();
     _builderPos = 920;
     _isHighway = false;
 }

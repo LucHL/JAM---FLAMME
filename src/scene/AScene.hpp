@@ -12,6 +12,7 @@
 #include "../objects/buttons/MainMenuBtn.hpp"
 #include "../objects/buttons/MoreVolume.hpp"
 #include "../objects/buttons/LessVolume.hpp"
+#include "../objects/Pixel.hpp"
 
 class AScene : public IScene {
     public:
@@ -30,4 +31,6 @@ class AScene : public IScene {
         sf::Sprite _bgSprite;
         std::vector<std::unique_ptr<IBtn>> _button;
         std::unique_ptr<sf::Music> _music;
+        Pixel _p;
+        std::vector<std::unique_ptr<Pixel>> _pixels;
 };

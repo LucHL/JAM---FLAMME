@@ -10,7 +10,6 @@
 #include "scene/Settings.hpp"
 #include "scene/MainMenu.hpp"
 #include "scene/GameScene.hpp"
-#include "objects/Pixel.hpp"
 
 Game::Game(sf::RenderWindow &win, sf::Event &event) : _window(win), _event(event) {
     createWindow();
@@ -23,7 +22,6 @@ void Game::createWindow() {
     settings.antialiasingLevel = 8;
     _window.create(sf::VideoMode(1920, 1080), "FLAMME", sf::Style::Default, settings);
     _s = std::make_unique<MainMenu>("assets/startmenu.png", _window, sceneType::MAINMENU);
-    // _s = std::make_shared<Settings>(Settings("assets/startmenu.png", _window, sceneType::SETTINGS));
 }
 
 void Game::gameLoop()

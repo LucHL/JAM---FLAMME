@@ -46,6 +46,8 @@ void GameScene::update(sf::Event &e)
             road->update(_player.getCollisionSprite());
         _clock.restart();
     }
+    if (_list.size() > 15)
+        _list.erase(_list.begin());
 }
 
 void GameScene::createRoad(std::shared_ptr<Road> road) {

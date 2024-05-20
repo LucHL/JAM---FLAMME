@@ -52,8 +52,9 @@ void Player::movePlayerUp(std::vector<std::shared_ptr<Road>> road, int *builderP
         changePlayerSkin(128, 224);
     if (_state == 2)
         changePlayerSkin(128, 320);
+    *builderPos += (32 * 0.92f);
     for (auto &rod : road)
-        rod->moveWorldRoad(builderPos);
+        rod->moveWorldRoad();
 }
 
 void Player::movePlayerLeft() {

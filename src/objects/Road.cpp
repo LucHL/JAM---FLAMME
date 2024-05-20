@@ -36,8 +36,7 @@ void Road::draw(sf::RenderWindow &w) {
         car->draw(w);
 }
 
-void Road::moveWorldRoad(int *builderPos) {
-    *builderPos += (32 * 0.92f);
+void Road::moveWorldRoad() {
     _pos.y += (32 * 0.92f);
     _spriteCollision.setPosition(_pos);
     _spriteRoad.setPosition(_pos);

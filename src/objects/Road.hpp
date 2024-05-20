@@ -17,7 +17,7 @@ public:
     void buildHighway(int *builderPos);
     void buildGrass(int *builderPos);
     void createCar(std::shared_ptr<Car> car);
-    void moveWorldRoad(int *builderPos);
+    void moveWorldRoad();
     void update();
     void draw(sf::RenderWindow &w);
 

@@ -12,7 +12,7 @@ int main()
     sf::RenderWindow win;
     sf::Event event;
     Game game(win, event);
-    sf::Listener::setGlobalVolume(50);
+    sf::Listener::setGlobalVolume(0);
 
     game.gameLoop();
 }

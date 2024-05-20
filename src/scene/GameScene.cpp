@@ -6,6 +6,8 @@
 */
 
 #include "GameScene.hpp"
+#include <chrono>
+#include <thread>
 
 GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
@@ -32,11 +34,19 @@ void GameScene::draw()
 
 void GameScene::update(sf::Event &e)
 {
+    _time = _clock.restart();
+    _player.update(e, _list, &_builderPos);
+
     while (_builderPos > 0){
         createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos, &_gameSeed));
         _isHighway = _isHighway ? false : true;
     }
-    _player.update(e, _list, &_builderPos);
+    std::cout << _time.asMilliseconds() << std::endl;
+    if (_time.asMilliseconds() >= 4 || _time.asMilliseconds() == 0) {
+        for (auto &road : _list)
+            road->update();
+        _clock.restart();
+    }
 }
 
 void GameScene::createRoad(std::shared_ptr<Road> road) {

@@ -24,6 +24,7 @@ class GameScene : public AScene {
         int _builderPos;
         unsigned int _gameSeed;
         Player _player;
-        sf::Clock _clock;
         std::vector<std::shared_ptr<Road>> _list;
+        sf::Clock _clock;
+        sf::Time _time;
 };

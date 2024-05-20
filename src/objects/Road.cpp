@@ -54,8 +54,8 @@ sf::Sprite &Road::getCollisionSprite() {
 
 void Road::update() {
     for (auto &car : _list){
-        (*car).moveCar();
-        if ((*car).isPlayerCollision())
+        car->moveCar();
+        if (car->isPlayerCollision())
             exit(0);
     }
 }

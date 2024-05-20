@@ -16,8 +16,9 @@ class Player
         ~Player();
 
         void movePlayerUp(std::vector<std::shared_ptr<Road>> road, int *builderPos);
-        void movePlayerLeft();
-        void movePlayerRight();
+        void movePlayerLeft(std::vector<std::shared_ptr<Road>> road);
+        void movePlayerRight(std::vector<std::shared_ptr<Road>> road);
+        bool checkPlayerCollision(const sf::Sprite &collision, sf::Vector2f newPos);
         void changePlayerPos(sf::Vector2f pos);
         void changePlayerSkin(int top, int left);
         void update(sf::Event &e, std::vector<std::shared_ptr<Road>> _list, int *builderPos);

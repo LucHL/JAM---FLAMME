@@ -48,6 +48,10 @@ void Road::createCar(std::shared_ptr<Car> car) {
     _list.push_back(car);
 }
 
+sf::Sprite &Road::getCollisionSprite() {
+    return _spriteCollision;
+}
+
 void Road::update() {
     for (auto &car : _list){
         (*car).moveCar();

@@ -26,6 +26,27 @@ Player::~Player()
 {
 }
 
+bool Player::checkPlayerCollision(const sf::Sprite &collision, sf::Vector2f newPos) {
+    sf::Image image2 = collision.getTexture()->copyToImage();
+    sf::FloatRect sprite1Bounds = _sprite.getGlobalBounds();
+    int posX;
+    int posY;
+
+    sprite1Bounds.left = (newPos.x < 0) ? sprite1Bounds.left + newPos.x + 10: sprite1Bounds.left + newPos.x - 10;
+    sprite1Bounds.top += (newPos.y + 15);
+    for (int x = sprite1Bounds.left; x < sprite1Bounds.left + sprite1Bounds.width; ++x)
+        for (int y = sprite1Bounds.top; y < sprite1Bounds.top + sprite1Bounds.height; ++y) {
+            posX = x - collision.getPosition().x;
+            posY = y - collision.getPosition().y;
+            if (posX >= 0 && posX < image2.getSize().x && posY >= 0 && posY < image2.getSize().y) {
+                sf::Color pixelColor = image2.getPixel(posX, posY);
+                if (pixelColor != sf::Color::Transparent)
+                    return true;
+            }
+        }
+    return false;
+}
+
 void Player::changePlayerPos(sf::Vector2f pos)
 {
     _pos.x += pos.x;
@@ -52,29 +73,38 @@ void Player::movePlayerUp(std::vector<std::shared_ptr<Road>> road, int *builderP
         changePlayerSkin(128, 224);
     if (_state == 2)
         changePlayerSkin(128, 320);
+    for (auto &rod : road)
+        if (checkPlayerCollision(rod->getCollisionSprite(), (sf::Vector2f){0, -32}))
+            return;
     *builderPos += (32 * 0.92f);
     for (auto &rod : road)
         rod->moveWorldRoad();
 }
 
-void Player::movePlayerLeft() {
+void Player::movePlayerLeft(std::vector<std::shared_ptr<Road>> road) {
     if (_state == 0)
         changePlayerSkin(128, 448);
     if (_state == 1)
         changePlayerSkin(128, 416);
     if (_state == 2)
         changePlayerSkin(128, 480);
-    changePlayerPos((sf::Vector2f){-50, 0});
+    for (auto &rod : road)
+        if (checkPlayerCollision(rod->getCollisionSprite(), (sf::Vector2f){-32, 0}))
+            return;
+    changePlayerPos((sf::Vector2f){-32 * 0.92f, 0});
 }
 
-void Player::movePlayerRight() {
+void Player::movePlayerRight(std::vector<std::shared_ptr<Road>> road) {
     if (_state == 0)
         changePlayerSkin(128, 64);
     if (_state == 1)
         changePlayerSkin(128, 32);
     if (_state == 2)
         changePlayerSkin(128, 96);
-    changePlayerPos((sf::Vector2f){50, 0});
+    for (auto &rod : road)
+        if (checkPlayerCollision(rod->getCollisionSprite(), (sf::Vector2f){32, 0}))
+            return;
+    changePlayerPos((sf::Vector2f){32 * 0.92f, 0});
 }
 
 void Player::update(sf::Event &e, std::vector<std::shared_ptr<Road>> road, int *builderPos)
@@ -82,9 +112,9 @@ void Player::update(sf::Event &e, std::vector<std::shared_ptr<Road>> road, int *
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         movePlayerUp(road, builderPos);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        movePlayerLeft();
+        movePlayerLeft(road);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        movePlayerRight();
+        movePlayerRight(road);
 }
 
 void Player::draw(sf::RenderWindow &w)

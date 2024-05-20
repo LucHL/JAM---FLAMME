@@ -18,6 +18,7 @@ public:
     void buildGrass(int *builderPos);
     void createCar(std::shared_ptr<Car> car);
     void moveWorldRoad();
+    sf::Sprite &getCollisionSprite();
     void update();
     void draw(sf::RenderWindow &w);
 

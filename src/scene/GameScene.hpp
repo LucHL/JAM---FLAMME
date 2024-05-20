@@ -17,7 +17,7 @@ class GameScene : public AScene {
 
         void draw() override;
         void update(sf::Event &e) override;
-        int createRoad(std::shared_ptr<Road> road);
+        void createRoad(std::shared_ptr<Road> road);
 
     private:
         bool _isHighway;

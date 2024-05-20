@@ -36,14 +36,17 @@ void Road::draw(sf::RenderWindow &w) {
         car->draw(w);
 }
 
-void Road::createCar(std::shared_ptr<Car> car) {
-    _list.push_back(car);
+void Road::moveWorldRoad(int *builderPos) {
+    *builderPos += (32 * 0.92f);
+    _pos.y += (32 * 0.92f);
+    _spriteCollision.setPosition(_pos);
+    _spriteRoad.setPosition(_pos);
+    for (auto &car : _list)
+        car->moveWorldCar();
 }
 
-int Road::getRoadSize(void) {
-    if (!_isHighway)
-        return 96;
-    return (_type + 1) * 96;
+void Road::createCar(std::shared_ptr<Car> car) {
+    _list.push_back(car);
 }
 
 void Road::update() {

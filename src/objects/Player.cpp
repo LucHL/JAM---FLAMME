@@ -6,6 +6,7 @@
 */
 
 #include "Player.hpp"
+#include "Road.hpp"
 
 Player::Player()
 {
@@ -44,13 +45,15 @@ void Player::changePlayerSkin(int top, int left)
     _sprite.setTexture(_texture, true);
 }
 
-void Player::movePlayerUp() {
+void Player::movePlayerUp(std::vector<std::shared_ptr<Road>> road, int *builderPos) {
     if (_state == 0)
         changePlayerSkin(64, 192);
     if (_state == 1)
         changePlayerSkin(128, 224);
     if (_state == 2)
         changePlayerSkin(128, 320);
+    for (auto &rod : road)
+        rod->moveWorldRoad(builderPos);
 }
 
 void Player::movePlayerLeft() {
@@ -73,10 +76,10 @@ void Player::movePlayerRight() {
     changePlayerPos((sf::Vector2f){50, 0});
 }
 
-void Player::update(sf::Event &e)
+void Player::update(sf::Event &e, std::vector<std::shared_ptr<Road>> road, int *builderPos)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        movePlayerUp();
+        movePlayerUp(road, builderPos);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         movePlayerLeft();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))

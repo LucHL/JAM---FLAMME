@@ -77,3 +77,8 @@ void Car::moveCar() {
     _pos.x = (_dir == 1) ? _pos.x + 20 * _speed : _pos.x - 20 * _speed;
     _sprite.setPosition(_pos);
 }
+
+void Car::moveWorldCar() {
+    _pos.y += (32 * 0.92f);
+    _sprite.setPosition(_pos);
+}

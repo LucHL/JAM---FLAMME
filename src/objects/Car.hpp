@@ -17,6 +17,7 @@ public:
     void buildClassic();
     void buildBus();
     void moveCar();
+    void moveWorldCar();
     void draw(sf::RenderWindow &w);
 
 private:

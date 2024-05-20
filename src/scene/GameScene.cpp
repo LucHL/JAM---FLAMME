@@ -36,7 +36,7 @@ void GameScene::update(sf::Event &e)
         createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos, &_gameSeed));
         _isHighway = _isHighway ? false : true;
     }
-    _player.update(e);
+    _player.update(e, _list, &_builderPos);
 }
 
 void GameScene::createRoad(std::shared_ptr<Road> road) {

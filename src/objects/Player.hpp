@@ -7,6 +7,7 @@
 
 #pragma once
 #include "../main.hpp"
+#include "Road.hpp"
 
 class Player
 {
@@ -14,12 +15,12 @@ class Player
         Player();
         ~Player();
 
-        void movePlayerUp();
+        void movePlayerUp(std::vector<std::shared_ptr<Road>> road, int *builderPos);
         void movePlayerLeft();
         void movePlayerRight();
         void changePlayerPos(sf::Vector2f pos);
         void changePlayerSkin(int top, int left);
-        void update(sf::Event &e);
+        void update(sf::Event &e, std::vector<std::shared_ptr<Road>> _list, int *builderPos);
         void draw(sf::RenderWindow &w);
 
     private:

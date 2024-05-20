@@ -17,6 +17,7 @@ class Settings : public AScene {
         void update(sf::Event &e) override;
         void draw();
     private:
+    //Settings Sprite
         sf::Texture _settings;
         sf::Sprite _settings_s;
         sf::FloatRect _settingsHitBox;

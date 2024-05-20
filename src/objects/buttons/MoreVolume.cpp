@@ -22,7 +22,8 @@ void MoreVolumeBtn::update(sf::Event &e, sf::RenderWindow &w) {
         if (e.type == sf::Event::MouseButtonPressed) {
             float volume;
             volume = sf::Listener::getGlobalVolume();
-            sf::Listener::setGlobalVolume(volume + 10);
+            if (volume != (float)100)
+                sf::Listener::setGlobalVolume(volume + 10);
         }
     } else
         _sprite.setColor(base);

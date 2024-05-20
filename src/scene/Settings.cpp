@@ -8,7 +8,8 @@
 #include "Settings.hpp"
 
 Settings::Settings(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
-    : AScene(backgroundPath, win, t) {
+    : AScene("assets/startmenu.png", win, t) {
+
     _button.push_back(std::make_unique<MoreVolumeBtn>(sf::Vector2f(600,700)));
     _button.push_back(std::make_unique<LessVolumeBtn>(sf::Vector2f(1000, 700)));
     _button.push_back(std::make_unique<MainMenuBtn>(sf::Vector2f(800,900)));

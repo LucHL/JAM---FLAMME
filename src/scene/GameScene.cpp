@@ -41,7 +41,6 @@ void GameScene::update(sf::Event &e)
         createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos, &_gameSeed));
         _isHighway = _isHighway ? false : true;
     }
-    std::cout << _time.asMilliseconds() << std::endl;
     if (_time.asMilliseconds() >= 4 || _time.asMilliseconds() == 0) {
         for (auto &road : _list)
             road->update(_player.getCollisionSprite());

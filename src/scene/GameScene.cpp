@@ -10,7 +10,7 @@
 GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneType t)
     : AScene(backgroundPath, win, t)
 {
-    _pos_y = 920;
+    _builderPos = 920;
     _isHighway = false;
 }
 
@@ -27,8 +27,8 @@ void GameScene::draw()
 
 void GameScene::update(sf::Event &e)
 {
-    while (_pos_y > 0){
-        _pos_y -= createRoad(std::make_shared<Road>(_isHighway, 4, _pos_y));
+    while (_builderPos > 0){
+        createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos));
         _isHighway = _isHighway ? false : true;
     }
     _player.update(e);

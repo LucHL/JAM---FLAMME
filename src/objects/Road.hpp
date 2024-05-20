@@ -11,11 +11,11 @@
 
 class Road {
 public:
-    Road(bool isHighway, int maxCarCount, int pos_y);
+    Road(bool isHighway, int maxCarCount, int *builderPos);
     ~Road();
 
-    void buildHighway();
-    void buildGrass();
+    void buildHighway(int *builderPos);
+    void buildGrass(int *builderPos);
     void createCar(std::shared_ptr<Car> car);
     int getRoadSize(void);
     void update();

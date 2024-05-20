@@ -21,7 +21,7 @@ class GameScene : public AScene {
 
     private:
         bool _isHighway;
-        int _pos_y;
+        int _builderPos;
         Player _player;
         sf::Clock _clock;
         std::vector<std::shared_ptr<Road>> _list;

@@ -52,7 +52,6 @@ void Car::buildClassic() {
     rect.width = 192;
     _texture.loadFromFile("assets/characters/car.png", rect);
     _sprite.setTexture(_texture, true);
-    _pos.y -= (rect.height * 0.65f);
 }
 
 void Car::buildBus() {
@@ -71,7 +70,6 @@ void Car::buildBus() {
     rect.width = 336;
     _texture.loadFromFile("assets/characters/bus_2.png", rect);
     _sprite.setTexture(_texture, true);
-    _pos.y -= (rect.height * 0.45f);
 }
 
 void Car::moveCar() {

@@ -7,20 +7,20 @@
 
 #include "Road.hpp"
 
-Road::Road(bool isHighway, int maxCarCount, int pos_y) {
+Road::Road(bool isHighway, int maxCarCount, int *builderPos) {
     std::srand(std::time(nullptr));
     _isHighway = isHighway;
     _type = std::rand() % 4;
     _carCount = 0;
     _maxCarCount = maxCarCount;
     _pos.x = 0;
-    _pos.y = pos_y;
+    _pos.y = *builderPos;
     if (_isHighway) {
         for (int i = 0; i < _type + 1; ++i)
-            createCar(std::make_shared<Car>(_carCount++, pos_y)); // remplir de voitures jusqu'à lim voie + luck
-        buildHighway();
+            createCar(std::make_shared<Car>(_carCount++, *builderPos)); // remplir de voitures jusqu'à lim voie + luck
+        buildHighway(builderPos);
     } else
-        buildGrass();
+        buildGrass(builderPos);
     _spriteRoad.setScale((sf::Vector2f){0.92f, 0.92f});
     _spriteRoad.setPosition(_pos);
     _spriteCollision.setPosition(_pos);
@@ -53,7 +53,7 @@ void Road::update() {
     }
 }
 
-void Road::buildHighway() {
+void Road::buildHighway(int *builderPos) {
     sf::Vector2i pos = {0, 0};
     sf::IntRect rect;
 
@@ -71,10 +71,9 @@ void Road::buildHighway() {
     _spriteRoad.setTexture(_textureRoad, true);
     _textureCollision.loadFromFile("assets/collision.png", rect);
     _spriteCollision.setTexture(_textureCollision, true);
-    _pos.y -= (rect.height * 0.92f);
 }
 
-void Road::buildGrass() {
+void Road::buildGrass(int *builderPos) {
     sf::Vector2i pos = {0, 1728};
     sf::IntRect rect;
 
@@ -87,5 +86,4 @@ void Road::buildGrass() {
     _spriteRoad.setTexture(_textureRoad, true);
     _textureCollision.loadFromFile("assets/collision.png", rect);
     _spriteCollision.setTexture(_textureCollision, true);
-    _pos.y -= (rect.height * 0.92f);
 }

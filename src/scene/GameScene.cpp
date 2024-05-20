@@ -16,6 +16,7 @@ GameScene::GameScene(std::string backgroundPath, sf::RenderWindow &win, sceneTyp
     _music->play();
     _builderPos = 1007;
     _isHighway = false;
+    _gameSeed = std::time(nullptr);
 }
 
 GameScene::~GameScene()
@@ -32,7 +33,7 @@ void GameScene::draw()
 void GameScene::update(sf::Event &e)
 {
     while (_builderPos > 0){
-        createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos));
+        createRoad(std::make_shared<Road>(_isHighway, 4, &_builderPos, &_gameSeed));
         _isHighway = _isHighway ? false : true;
     }
     _player.update(e);

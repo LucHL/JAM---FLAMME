@@ -7,8 +7,9 @@
 
 #include "Car.hpp"
 
-Car::Car(int id, int pos_y, int road_size) {
-    std::srand(std::time(nullptr));
+Car::Car(int id, int pos_y, int road_size, unsigned int *gameSeed) {
+    std::srand(*gameSeed);
+    *gameSeed += 324;
     _color = std::rand() % 4;
     _type = std::rand() % 2;
     _dir = std::rand() % 2;

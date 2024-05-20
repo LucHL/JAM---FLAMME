@@ -7,8 +7,9 @@
 
 #include "Road.hpp"
 
-Road::Road(bool isHighway, int maxCarCount, int *builderPos) {
-    std::srand(std::time(nullptr));
+Road::Road(bool isHighway, int maxCarCount, int *builderPos, unsigned int *gameSeed) {
+    std::srand(*gameSeed);
+    *gameSeed += 324;
     _isHighway = isHighway;
     _type = std::rand() % 4;
     _carCount = 0;
@@ -17,7 +18,7 @@ Road::Road(bool isHighway, int maxCarCount, int *builderPos) {
     _pos.y = *builderPos;
     if (_isHighway) {
         for (int i = 0; i < _type + 1; ++i)
-            createCar(std::make_shared<Car>(_carCount++, *builderPos, (_type + 1) * 96)); // remplir de voitures jusqu'à lim voie + luck
+            createCar(std::make_shared<Car>(_carCount++, *builderPos, (_type + 1) * 96, gameSeed)); // remplir de voitures jusqu'à lim voie + luck
         buildHighway(builderPos);
     } else
         buildGrass(builderPos);

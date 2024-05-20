@@ -10,7 +10,7 @@
 
 class Car {
 public:
-    Car(int id, int pos_y, int road_size);
+    Car(int id, int pos_y, int road_size, unsigned int *gameSeed);
     ~Car();
 
     bool isPlayerCollision();

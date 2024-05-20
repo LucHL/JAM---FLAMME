@@ -11,7 +11,7 @@
 
 class Road {
 public:
-    Road(bool isHighway, int maxCarCount, int *builderPos);
+    Road(bool isHighway, int maxCarCount, int *builderPos, unsigned int *gameSeed);
     ~Road();
 
     void buildHighway(int *builderPos);

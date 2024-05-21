@@ -22,13 +22,13 @@ void Pixel::initializePixels()
     for (auto &p : _pixels) {
         switch (rand() % 3) {
             case 0:
-                p->color = sf::Color(255, 0, 0, 100);  // Rouge avec transparence
+                p->color = sf::Color(255, 0, 0, 100);
                 break;
             case 1:
-                p->color = sf::Color(255, 165, 0, 100);  // Orange avec transparence
+                p->color = sf::Color(255, 165, 0, 100);
                 break;
             case 2:
-                p->color = sf::Color(255, 255, 0, 100);  // Jaune avec transparence
+                p->color = sf::Color(255, 255, 0, 100);
                 break;
         }
         p->active = false; // Démarre inactif
@@ -61,7 +61,7 @@ void Pixel::displayPixel(sf::RenderWindow &win)
 {
     for (auto &p : _pixels) {
         if (p->active) {
-            sf::RectangleShape pixelShape(sf::Vector2f(4, 4)); // Assurez-vous que la taille est correcte
+            sf::RectangleShape pixelShape(sf::Vector2f(4, 4));
             pixelShape.setPosition(p->position);
             pixelShape.setFillColor(p->color);
             win.draw(pixelShape);
